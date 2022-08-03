@@ -13,7 +13,7 @@
 				<h1>JIMBO TEXTILES</h1>
 				<ul>
 					<li><a href="#">Contact</a></li>
-					<li><a href="#">Sign in</a></li>
+					<li><a href="login.jsp">Sign in</a></li>
 				</ul>
 				
 			</div>
