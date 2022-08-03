@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-  <title>Create Account | Jimbo Textiles</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Create Account | Jimbo</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
 
 <body>
 

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JIMBO|Home Page</title>
+    <title>JIMBO | Home Page</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
 
@@ -19,7 +19,9 @@
                 </span>
         <div id="sign-in">
             <a href="#">CONTACT US</a>
-            <a href="#">SIGN IN</a>
+            <a href="pages/user_login.jsp">SIGN IN(AS USER)</a>
+             <a href="pages/admin_login.jsp">SIGN IN(AS ADMIN)</a>
+
         </div>
 
     </div>
@@ -39,10 +41,11 @@
     </div>
 </header>
 <br>
-<div class="container-fluid">
+<div class="container-fluid-section">
     <div id="product-section">
     <br>
         <h2>SHIRTS</h2>
+        <a href="/Admin_auth"><button>see</button></a>
 
     <div class="shirts products">
         <% int counter = 0;
