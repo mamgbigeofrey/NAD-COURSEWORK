@@ -45,7 +45,6 @@
     <div id="product-section">
     <br>
         <h2>SHIRTS</h2>
-        <a href="/Admin_auth"><button>see</button></a>
 
     <div class="shirts products">
         <% int counter = 0;

@@ -5,11 +5,9 @@
         <group>
             <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/pages/user_login.jsp</file>
             <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/pages/dashboard_style.css</file>
-            <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/pages/admin-dashboard/admin_dashboard.jsp</file>
             <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/pages/newAccount.jsp</file>
+            <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/pages/admin_login.jsp</file>
             <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/css/style.css</file>
-            <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/pages/user-dashboard/user_dashboard.jsp</file>
             <file>file:/C:/Users/Hp/Desktop/NAD-COURSEWORK/JIMBO/web/index.jsp</file>
         </group>
     </open-files>
