@@ -8,6 +8,14 @@
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>com.example.NewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>customer</servlet-name>
+        <servlet-class>customer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>jhvjh</servlet-name>
+        <servlet-class>jhvjh</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Admin_auth</servlet-name>
         <url-pattern>/Admin_auth</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>customer</servlet-name>
+        <url-pattern>/customer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>jhvjh</servlet-name>
+        <url-pattern>/jhvjh</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
