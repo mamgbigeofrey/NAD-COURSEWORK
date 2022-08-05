@@ -16,6 +16,14 @@
         <servlet-name>jhvjh</servlet-name>
         <servlet-class>jhvjh</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>User_authentication</servlet-name>
+        <servlet-class>User_authentication</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserRegister</servlet-name>
+        <servlet-class>UserRegister</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Admin_auth</servlet-name>
         <url-pattern>/Admin_auth</url-pattern>
@@ -31,6 +39,22 @@
     <servlet-mapping>
         <servlet-name>jhvjh</servlet-name>
         <url-pattern>/jhvjh</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Admin_authentication</servlet-name>
+        <servlet-class>Admin_authentication</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Admin_authentication</servlet-name>
+        <url-pattern>/Admin_authentication</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>User_authentication</servlet-name>
+        <url-pattern>/User_authentication</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserRegister</servlet-name>
+        <url-pattern>/UserRegister</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

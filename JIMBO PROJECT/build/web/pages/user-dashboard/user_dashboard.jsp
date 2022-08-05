@@ -102,7 +102,11 @@
       </div>
       <div class="profile-details">
         <img src="images/profile.jpg" alt="">
-        <span class="admin_name">Prem Shahi</span>
+        <span class="admin_name"><%
+            String name=request.getParameter("nn");
+            out.print("Logged in as " +name );
+            
+            %></span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
@@ -283,7 +287,7 @@ sidebarBtn.onclick = function() {
   sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
 }else
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-}
+};
  </script>
 
 </body>

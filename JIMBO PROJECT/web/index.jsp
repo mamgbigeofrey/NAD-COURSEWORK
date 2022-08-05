@@ -19,8 +19,7 @@
                 </span>
         <div id="sign-in">
             <a href="#">CONTACT US</a>
-            <a href="pages/user_login.jsp">SIGN IN(AS USER)</a>
-             <a href="pages/admin_login.jsp">SIGN IN(AS ADMIN)</a>
+            <a href="pages/user_login.jsp">SIGN IN</a>
 
         </div>
 

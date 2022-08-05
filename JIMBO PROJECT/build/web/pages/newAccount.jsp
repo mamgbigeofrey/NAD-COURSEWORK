@@ -10,7 +10,7 @@
 
     <section class="accout_creation">
       <div class="account_details_container">
-        <form id="my_form" class="form-spacing" method="post" action="#">
+        <form id="my_form" class="form-spacing" method="get" action="../UserRegister">
           <h4>Create New Account</h4>
           <hr>
           <div class="form-group">
@@ -42,7 +42,7 @@
 
       <div class="redirect_to_sign_in">
         <p>Have an existing account already? Continue to sign in</p>
-        <a href="login.jsp"><button>Sign in</button></a>
+        <a href="user_login.jsp"><button>Sign in</button></a>
       </div>
 
 
