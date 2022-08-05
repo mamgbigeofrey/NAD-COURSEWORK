@@ -9,6 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.*;
 
@@ -17,16 +18,6 @@ import java.sql.*;
  * @author Hp
  */
 public class User_authentication extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,29 +28,33 @@ public class User_authentication extends HttpServlet {
             
              try {
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nad_database", "root", "");
-                out.print("connection to database success");
                 Statement statement=conn.createStatement();
                 String username=request.getParameter("username");
                 String password=request.getParameter("password");
+                
+                
                 ResultSet rs =statement.executeQuery("select * from useraccount where email='"+username+"' and password='"+password+"'");
-          if(rs.next()){
-             // String nn=rs.getString("name");
-              response.sendRedirect("pages/user-dashboard/user_dashboard.jsp");
-          }
-          else{
-              out.println("No credentials matching your login were found. Please try again");
-          }
-         // resultSet.close();
-         // statement.close();
-         // conn.close();
+               
+                if(rs.next()){
+                    String name=rs.getString("name");
+                    HttpSession session=request.getSession();
+                    session.setAttribute("name", name);
+                    session.setAttribute("user", username);
+                    session.setAttribute("pass", password);
+
+                    response.sendRedirect("pages/user-dashboard/user_dashboard.jsp");
+                }
+                else{
+                    out.println("Incorrect login details. Please try again");
+                }
+         
+            conn.close();
              } catch (SQLException ex) {
                  out.print( ex.getMessage());
              }
         } catch (ClassNotFoundException ex) {
             out.print( ex.getMessage());
-        }finally {
-                out.println("Database Connection Terminated");
-            }
+        }
         }
     }
 

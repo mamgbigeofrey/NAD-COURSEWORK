@@ -16,6 +16,13 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+    <%
+         response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("user")==null || session.getAttribute("pass")==null){
+        response.sendRedirect("../user_login.jsp");
+        }
+    
+    %>
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
@@ -73,7 +80,7 @@
         <li>
           <a href="#">
             <i class='bx bx-heart' ></i>
-            <span class="links_name">Favrorites</span>
+            <span class="links_name">Favorites</span>
           </a>
         </li>
         <li>
@@ -85,7 +92,12 @@
         <li class="log_out">
           <a href="#">
             <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
+            <span class="links_name">
+                <form method="get" action="../../Log_out">
+                    <button type="submit" style="background: transparent; color: white; 
+                            border: none;cursor: pointer;">LOG OUT</button>
+                </form>
+            </span>
           </a>
         </li>
       </ul>
@@ -102,11 +114,12 @@
       </div>
       <div class="profile-details">
         <img src="images/profile.jpg" alt="">
-        <span class="admin_name"><%
-            String name=request.getParameter("nn");
-            out.print("Logged in as " +name );
+        <span class="admin_name">
+            <%
+            out.print("Logged in as "+ session.getAttribute("name")) ;
             
-            %></span>
+            %>
+        </span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>

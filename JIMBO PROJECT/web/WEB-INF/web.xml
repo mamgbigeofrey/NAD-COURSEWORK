@@ -24,6 +24,14 @@
         <servlet-name>UserRegister</servlet-name>
         <servlet-class>UserRegister</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>LogOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Log_out</servlet-name>
+        <servlet-class>Log_out</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Admin_auth</servlet-name>
         <url-pattern>/Admin_auth</url-pattern>
@@ -55,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>UserRegister</servlet-name>
         <url-pattern>/UserRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Log_out</servlet-name>
+        <url-pattern>/Log_out</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

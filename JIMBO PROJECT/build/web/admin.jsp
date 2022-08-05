@@ -16,6 +16,13 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+    <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("user")==null || session.getAttribute("pass")==null){
+        response.sendRedirect("pages/admin_login.jsp");
+        }
+    
+    %>
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
@@ -25,7 +32,7 @@
         <li>
           <a href="#" class="active">
             <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Dashboard</span>
+            <span class="links_name">DASHBOARD</span>
           </a>
         </li>
         <li>
@@ -61,7 +68,7 @@
         <li>
           <a href="#">
             <i class='bx bx-user' ></i>
-            <span class="links_name">Team</span>
+            <span class="links_name">Staff Record</span>
           </a>
         </li>
         <li>
@@ -70,22 +77,15 @@
             <span class="links_name">Messages</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-heart' ></i>
-            <span class="links_name">Favrorites</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
-          </a>
-        </li>
         <li class="log_out">
           <a href="#">
             <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
+            <span class="links_name">
+                 <form method="get" action="Log_out">
+                    <button type="submit" style="background: transparent; color: white; 
+                            border: none;cursor: pointer;">LOG OUT</button>
+                </form>
+            </span>
           </a>
         </li>
       </ul>
@@ -102,7 +102,12 @@
       </div>
       <div class="profile-details">
         <img src="pages/admin-dashboard/images/profile.jpg" alt="">
-        <span class="admin_name">Prem Shahi</span>
+        <span class="admin_name">
+            <%
+            out.print("Logged in as "+ session.getAttribute("name")) ;
+            
+            %>
+        </span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>

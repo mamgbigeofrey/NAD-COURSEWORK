@@ -9,26 +9,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.*;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 
 /**
  *
  * @author Hp
  */
 public class Admin_authentication extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,30 +29,32 @@ public class Admin_authentication extends HttpServlet {
              try {
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nad_database", "root", "");
                 Statement statement=conn.createStatement();
-                ResultSet resultSet=statement.executeQuery("select * from admin");
-                String db_email=resultSet.getString("email");
-                out.print("i'm running now, please wait");
-                String db_password=resultSet.getString("password");
-                String form_email=request.getParameter("username");
-                String form_password=request.getParameter("password");
+                String username=request.getParameter("username");
+                String password=request.getParameter("password");
+                
+                
+                ResultSet rs =statement.executeQuery("select * from admin where email='"+username+"' and password='"+password+"'");
+               
+                if(rs.next()){
+                    String name=rs.getString("manager_name");
+                    HttpSession session=request.getSession();
+                    session.setAttribute("name", name);
+                    session.setAttribute("user", username);
+                    session.setAttribute("pass", password);
 
-          if(form_email.equals(db_email) && form_password.equals(db_password)){
-              response.sendRedirect("./pages/user-dashboard/user_dashboard.jsp");
-          }
-          else{
-              out.println("You have either a wrong email or a password");
-          }
-         // resultSet.close();
-         // statement.close();
-         // conn.close();
+                    response.sendRedirect("admin.jsp");
+                }
+                else{
+                    out.println("Incorrect login details. Please try again");
+                }
+         
+            conn.close();
              } catch (SQLException ex) {
-                 out.print("can not find database specified" + ex.getMessage());
+                 out.print( ex.getMessage());
              }
         } catch (ClassNotFoundException ex) {
-            out.print("driver class not found" + ex.getMessage());
-        }finally {
-                out.println("Database Connection Terminated");
-            }
+            out.print( ex.getMessage());
+        }
         }
     }
 
