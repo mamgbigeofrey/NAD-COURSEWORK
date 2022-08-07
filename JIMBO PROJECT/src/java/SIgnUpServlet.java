@@ -9,6 +9,7 @@ import com.dbConnection.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,7 +21,8 @@ import java.util.logging.Logger;
  *
  * @author mwine
  */
-public class SIgnUpServlet extends HttpServlet {
+@WebServlet(name = "SignUpServlet", urlPatterns = "/sign-up")
+public class SignUpServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -55,9 +57,9 @@ public class SIgnUpServlet extends HttpServlet {
             
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SIgnUpServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SIgnUpServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

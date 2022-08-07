@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <div class="container-fluid-section">
+        <div class="container-fluid-section product-section-container">
             <div id="product-section">
 
                 <%
@@ -99,8 +99,8 @@
                                     while(k<5){
                                         if(p.getCategory().equals("shirts")){
                     %>
-                    <div class="col-md-3 my-3">
-                        <div class="card w-100 contentCard">
+                    <div class="col-md-3 my-3 product-card">
+                        <div class="contentCard ">
                             <img class="card-img-top" src="product-image/<%=p.getImage()%>" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><%=p.getName() %></h5>

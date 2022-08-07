@@ -22,9 +22,12 @@
 
 body {
     /*background-color: #E5E5E5;*/
-     background-color: #f2f2f2;
+     /*background-color: #f2f2f2;*/
+     /*background-color: #D3DCFF;*/
+     background-color: #D3DCFF !important;
     margin: 0;
-    width: 100%;
+    width: 100vw;
+    overflow-x: hidden;
     padding: 0;
 }
 /*header and the components styling*/ 
@@ -33,20 +36,24 @@ img#cart-img {
     height: 30px;
     color:#EBA239;
 }
-
-header {
-    width: 100%;
-    height: 100px !important;
-    background: rgba(255, 255, 255, 1);
+nav{
+    width:100%;
+     padding:0 30px;
+   
+    height: 100px;
+    background: white;
+    
     align-items: center;
-    padding: 0 20px;
     font-family: fa-brands;
     position: fixed;
     z-index: 9999;
     top: 0;
-    color: black;
-
-
+    left:0;
+    
+}
+header{
+    
+    
 }
 #header1 h2{
     font-weight:bolder;
@@ -91,27 +98,43 @@ div#header2 {
     background:rgba(255,255,255,0.5);
     padding:10px 30px;
 }
+.container-fluid{
+    width: 95%;
+    margin: auto auto;
+}
+.container-fluid-section h2{
+    width: 90%;
+    background: #3B814E;
+    padding: 20px 0;
+    margin: auto auto;
+    align-items: center;
+    text-align: center;
+}
+.container-fluid-section h2:hover{
+    box-shadow: 10px 5px 5px rgba(0,0,0,0.25),10px 5px 5px rgba(0,0,0,0.22); 
+    transition: .2s;
+    color:white;
+}
  
  
 .container-fluid-section{
-    margin-top: 70px;
+ 
+    margin:auto auto;
 }
 .product-section{
     position:relative;
     top:20px;
-}
-#product-section h2{
-margin-left: 50px;
-/*background-color:black ;*/
-  background: #EBA239;
-color:black;
-padding:10px 120px;
-text-align: center;
+    margin: auto auto;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+     padding:0 50px 0;
+     color:black;
 box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-
-/*color:blue;*/
 }
-
+.product-card{
+    margin-left: 0 !important;
+}
 hr {
     border: 2px solid black !important;
     margin:0 30px 0 0 !important;
@@ -125,15 +148,7 @@ a {
 a:hover{
     text-decoration: none !important;
 }
-/*
-#category {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 40%;
-    height: 100%;
-}*/
+ 
 
 .category-list {
     margin: 0 20px 0 0;
@@ -166,31 +181,18 @@ a:hover{
     margin-right: 30px;
 }
 
-h3{
+.product-section h3{
     text-align: center;
     font-size: 30px;
     margin: 0;
     padding-top:10px ;
 }
  
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin:20px 0;
-}
+ 
 .contentCard{
-    /*width: 10%;*/
-    width: 15%;
-    margin: 20px 50px 20px;
     box-sizing: border-box;
-    /*float: left;*/
     text-align: center;
     border-radius:20px;
-     cursor: pointer; 
-    /*padding-top: 10px;*/
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
     transition: .5s;
     background: #f2f2f2;
@@ -205,20 +207,6 @@ h3{
     border-radius:20px 20px 0 0 !important;
     
 }
-/*.card-img{
-    width: 20%;
-    width: 15%;
-    margin: 15px;
-    box-sizing: border-box;
-    float: left;
-    text-align: center;
-    border-radius:10px 10px 50px 50px;
-     cursor: pointer; 
-    padding-top: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
-    transition: .5s;
-    background: #f2f2f2;
-}*/
 .contentCard:hover{
     box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transform: translate(0, -5px);
@@ -235,87 +223,15 @@ p{
     color: #222f3e;
     margin: 0;
 }
-button{
-    font-family: mwine!important;
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px   20px;
-  background: #EBA239 !important;
-    color: #f2f2f2;
-    font-size: 20px;
-    border: none;
-    /*cursor: pointer;*/
-    margin-top: 10px;
-    transition: .4s;
-    padding: 15px;
-    outline: none;
-}
-
-.button-container:hover{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3B814E;
-     border-radius: 0 0 20px 20px;
- 
-}
-.button-container{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-     background-color:#3B814E;
-     border-radius: 0 0 20px 20px;
- 
-
-}
-
- 
-.fa-heart{
-    font-size: 25px;
-    cursor:pointer;
-}
-button:hover{
-    background-color: #3B814E;
-    color:white;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: .4s;
-    font-family: jimbo;
-}
-/*@media screen and (max-width: 1400px){
-    .content{
-        width: 21%;
-    }
-}
-@media screen and (max-width: 1100px){
-    .content{
-        width: 25%;
-    }
-}
-@media screen and (max-width: 900px){
-    .content{
-        width: 30%;
-    }
-}
-@media screen and (max-width: 510px){
-    .content{
-        width:70%;
-    }
-    button{
-        height:50px;
-    }
-}*/
-    
-
-.products-container{
+ .products-container{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 100%;
-    margin: 20px;
+    padding:10px 50px;
+    width:95%;
+    margin:auto auto;
+    background: #EFF2FE;
+   
 
 }
 footer{
@@ -485,21 +401,8 @@ footer{
         margin-bottom: 10px;
 
       }
-      #heart-btn{
-          font-size: 25px;
-          color:white;
-      }
-      #heart-btn:checked{
-          color:red;
-          transition: 0.000000000005s;
-      }
-      .buy{
-          display: flex;
-          justify-content:space-between;
-          width: 100%;
-          align-items: center;
-          font-family: fa-brands !important;
-      }
+   
+      
       @media(max-width: 700px){
         .account_login_container, .redirect_to_sign_up{
           width: 98%;
