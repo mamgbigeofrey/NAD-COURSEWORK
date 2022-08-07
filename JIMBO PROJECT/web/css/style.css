@@ -21,10 +21,8 @@
 }
 
 body {
-    /*background-color: #E5E5E5;*/
-     /*background-color: #f2f2f2;*/
-     /*background-color: #D3DCFF;*/
-     background-color: #D3DCFF !important;
+    background-color:white !important;
+    
     margin: 0;
     width: 100vw;
     overflow-x: hidden;
@@ -230,13 +228,14 @@ p{
     padding:10px 50px;
     width:95%;
     margin:auto auto;
-    background: #EFF2FE;
+    /*background: #EFF2FE;*/
    
 
 }
 footer{
     position: absolute;
-    /*bottom: 0;*/
+ margin: auto auto;
+ left: 0;
     height: 500px;
     width: 100vw;
     background: #0e0e0e;
