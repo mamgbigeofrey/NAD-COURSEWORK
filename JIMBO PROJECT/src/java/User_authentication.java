@@ -27,13 +27,13 @@ public class User_authentication extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             
              try {
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nad_database", "root", "");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nadcoursework", "root", "");
                 Statement statement=conn.createStatement();
                 String username=request.getParameter("username");
                 String password=request.getParameter("password");
                 
                 
-                ResultSet rs =statement.executeQuery("select * from useraccount where email='"+username+"' and password='"+password+"'");
+                ResultSet rs =statement.executeQuery("select * from customer_account where email='"+username+"' and password='"+password+"'");
                
                 if(rs.next()){
                     String name=rs.getString("name");

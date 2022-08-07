@@ -68,7 +68,7 @@
         <li>
           <a href="#">
             <i class='bx bx-user' ></i>
-            <span class="links_name">Staff Record</span>
+            <span class="links_name">Staff Management</span>
           </a>
         </li>
         <li>

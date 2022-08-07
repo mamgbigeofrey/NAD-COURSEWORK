@@ -32,6 +32,10 @@
         <servlet-name>Log_out</servlet-name>
         <servlet-class>Log_out</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffRegister</servlet-name>
+        <servlet-class>StaffRegister</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Admin_auth</servlet-name>
         <url-pattern>/Admin_auth</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>Log_out</servlet-name>
         <url-pattern>/Log_out</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffRegister</servlet-name>
+        <url-pattern>/StaffRegister</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

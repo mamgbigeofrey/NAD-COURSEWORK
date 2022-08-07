@@ -16,17 +16,9 @@ import java.sql.*;
  *
  * @author Mamgbi Geofrey
  */
-public class UserRegister extends HttpServlet {
+public class StaffRegister extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,21 +28,16 @@ public class UserRegister extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             
              try {
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nadcoursework", "root", "");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nad_database", "root", "");
                 String name=request.getParameter("fname");
-                String gender=request.getParameter("gender");
-                String address=request.getParameter("address");
                 String username=request.getParameter("username");
                 String email=request.getParameter("email");
                 String pword=request.getParameter("password");
-                
-                PreparedStatement pstmt=conn.prepareStatement("INSERT customer_account(name,gender,address,username,email,password) " + "VALUES (?,?,?,?,?,?)");
+                PreparedStatement pstmt=conn.prepareStatement("INSERT useraccount(name,username,email,password) " + "VALUES (?,?,?,?)");
                 pstmt.setString(1, name);
-                pstmt.setString(2, gender);
-                pstmt.setString(3, address);
-                pstmt.setString(4, username);
-                pstmt.setString(5, email);
-                pstmt.setString(6, pword);
+                pstmt.setString(2, username);
+                pstmt.setString(3, email);
+                pstmt.setString(4, pword);
                int i= pstmt.executeUpdate();
                 
           if(i>0){
@@ -61,10 +48,10 @@ public class UserRegister extends HttpServlet {
           }
                  conn.close();
              } catch (SQLException ex) {
-                 out.print( ex.getMessage());
+                 out.print("can not find database specified" + ex.getMessage());
              }
         } catch (ClassNotFoundException ex) {
-            out.print( ex.getMessage());
+            out.print("driver class not found" + ex.getMessage());
         }
         }
     }

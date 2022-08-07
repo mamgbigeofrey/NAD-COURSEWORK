@@ -35,12 +35,7 @@
             <span class="links_name">Dashboard</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-box' ></i>
-            <span class="links_name">Product</span>
-          </a>
-        </li>
+        
         <li>
           <a href="#">
             <i class='bx bx-list-ul' ></i>
@@ -65,18 +60,7 @@
             <span class="links_name">Total order</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Team</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li>
+        
         <li>
           <a href="#">
             <i class='bx bx-heart' ></i>

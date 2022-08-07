@@ -14,7 +14,7 @@
 
     <section class="account_login">
       <div class="account_login_container">
-        <form class="form-spacing" method="POST" action="../User_authentication">
+        <form class="form-spacing" method="get" action="../User_authentication">
           <h4>User Log In</h4>
           <hr>
           <div class="form-group">

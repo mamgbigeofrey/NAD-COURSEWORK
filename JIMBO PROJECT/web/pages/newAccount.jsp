@@ -19,6 +19,18 @@
           </div>
 
           <div class="form-group">
+            <label for="username">Gender</label>
+            <select name="gender" style="width: 96%; margin-left: 10px; height: 44px;">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                
+            </select>
+          </div>
+           <div class="form-group">
+            <label for="username">Address *</label>
+            <input type="text" name="address" placeholder="Type address here!" required>
+          </div>
+           <div class="form-group">
             <label for="username">Username *</label>
             <input type="text" name="username" placeholder="Username" required>
           </div>
@@ -29,11 +41,6 @@
           <div class="form-group">
             <label for="password">Password *</label>
             <input type="password" name="password" placeholder="Enter password" required>
-          </div>
-
-          <div class="form-group">
-            <label for="confirm_password">Confirm Password *</label>
-            <input type="password" name="confirm_password" placeholder="Re-enter password" required>
           </div>
 
           <button type="submit">Sign up</button>

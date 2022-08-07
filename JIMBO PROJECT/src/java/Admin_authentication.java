@@ -27,7 +27,7 @@ public class Admin_authentication extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             
              try {
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nad_database", "root", "");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nadcoursework", "root", "");
                 Statement statement=conn.createStatement();
                 String username=request.getParameter("username");
                 String password=request.getParameter("password");
