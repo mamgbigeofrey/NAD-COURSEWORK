@@ -10,7 +10,7 @@
   <head>
     <meta charset="UTF-8">
     <title>  Admin Dashboard | Jimbo </title>
-    <link rel="stylesheet" href="pages/dashboard_style.css">
+    <link rel="stylesheet" href="css/dashboard_style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,7 +81,7 @@
           <a href="#">
             <i class='bx bx-log-out'></i>
             <span class="links_name">
-                 <form method="get" action="Log_out">
+                 <form method="get" action="log-out">
                     <button type="submit" style="background: transparent; color: white; 
                             border: none;cursor: pointer;">LOG OUT</button>
                 </form>
