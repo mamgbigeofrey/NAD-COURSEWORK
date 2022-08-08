@@ -304,6 +304,15 @@ footer{
         margin-top: 20px;
         margin-bottom: 20px;
       }
+      .form-group .form-group-select{
+           height: 44px;
+            border-radius: 4px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            background: white;
+            width: 96%;
+            margin-left: 10px;
+      }
       .redirect_to_sign_in{
         width: 50%;
         margin: auto;

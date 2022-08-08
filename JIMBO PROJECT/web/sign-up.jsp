@@ -22,6 +22,19 @@
             <input type="email" name="email" placeholder="Email" required>
           </div>
           <div class="form-group">
+             Address * 
+            <input type="text" name="address" placeholder="create password" required>
+          </div>
+           <div class="form-group">
+            Gender * 
+            <select name="gender" class="form-group-select">
+                <option default >----Select Gender----</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+
+            </select>
+          </div>
+          <div class="form-group">
              Password * 
             <input type="password" name="password" placeholder="create password" required>
           </div>

@@ -40,23 +40,26 @@ public class SignUpServlet extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             String signupEmail = request.getParameter("email");
             String username = request.getParameter("username");
+            String address = request.getParameter("address");
+            String gender = request.getParameter("gender");
             String passwd1 = request.getParameter("password");
             String passwd2 = request.getParameter("confirm-password");
             
-//            if(!(passwd1.compare(passwd2))){
-//                request.setAttribute("passwderror","Please make sure your passwords match!");
-//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("sign-up.jsp");
-//                requestDispatcher.include(request, response);
-////                response.sendRedirect("sign-up.jsp");
-//            }
+            if(!(passwd1.equals(passwd2))){
+               //request.setAttribute("passwderror","Please make sure your passwords match!");
+                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("sign-up.jsp");
+                //requestDispatcher.include(request, response);
+               //response.sendRedirect("sign-up.jsp");
+       
+           }
             
             UserDao dao = new UserDao(DbCon.getConnection());
             if(dao.userExists(signupEmail)){
                 
-                response.sendRedirect("user_login.jsp");
+              response.sendRedirect("user_login.jsp");
             }
             else{
-                dao.userSignUp(signupEmail, username, passwd2);
+                dao.userSignUp(signupEmail, username,address,gender, passwd1);
                 response.sendRedirect("user_login.jsp");
             }
             

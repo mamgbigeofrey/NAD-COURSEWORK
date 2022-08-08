@@ -40,7 +40,7 @@ public class UserDao {
         
     }
 
-    public boolean userSignUp(String email, String name, String passwd) {
+    public boolean userSignUp(String email, String name,String address,String gender, String passwd) {
         User user = null;
           boolean result = false;
        
@@ -50,13 +50,17 @@ public class UserDao {
             user = new User();
             user.setEmail(email);
             user.setName(name);
+            user.setAddress(address);
+            user.setGender(gender);
             user.setPassword(passwd);
 
-            query = "insert into users (name,email,password) values (?,?,?)";
+            query = "insert into users (name,email,address,gender,password) values (?,?,?,?,?)";
             pst = this.con.prepareStatement(query);
             pst.setString(1,name);
             pst.setString(2,email);
-            pst.setString(3,passwd);
+            pst.setString(3,address);
+            pst.setString(4,gender);
+            pst.setString(5,passwd);
             
             pst.executeUpdate();
             result = true;
