@@ -23,7 +23,7 @@
           </div>
           <div class="form-group">
              Address * 
-            <input type="text" name="address" placeholder="create password" required>
+            <input type="text" name="address" placeholder="Enter address" required>
           </div>
            <div class="form-group">
             Gender * 
@@ -43,7 +43,7 @@
              Confirm Password * 
             <input type="password" name="confirm-password" placeholder="Re-enter password" required>
           </div>
-          <h2>${passwderror}</h2>
+          <h3 style="background: red;">${passwderror}</h3>
           <button type="submit">SIGN UP</button>
         </form>
       </div>

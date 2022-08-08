@@ -11,7 +11,7 @@
 
   <main id="main">
 
-   <div> <h3>${error}</h3> </div>
+   
     <section class="account_login">
       <div class="account_login_container">
   
@@ -27,6 +27,8 @@
              Password*
             <input type="password" name="login-password" placeholder="Enter your password" required>
           </div>
+          
+          <div > <h3 style="background: red;">${error}</h3> </div>
 
           <button type="submit">Sign In</button>
         </form>

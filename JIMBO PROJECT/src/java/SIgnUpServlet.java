@@ -14,7 +14,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,13 +49,22 @@ public class SignUpServlet extends HttpServlet {
             String passwd1 = request.getParameter("password");
             String passwd2 = request.getParameter("confirm-password");
             
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "");
+            Statement statement=conn.createStatement();   
+            ResultSet rs =statement.executeQuery("select * from admin where email='"+signupEmail+"'");
+            
             if(!(passwd1.equals(passwd2))){
-               //request.setAttribute("passwderror","Please make sure your passwords match!");
-                //RequestDispatcher requestDispatcher = request.getRequestDispatcher("sign-up.jsp");
-                //requestDispatcher.include(request, response);
-               //response.sendRedirect("sign-up.jsp");
+               request.setAttribute("passwderror","The two passwords don't match");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("sign-up.jsp");
+            requestDispatcher.include(request,response);
        
            }
+            if(rs.next()){
+                 request.setAttribute("passwderror","The account with this user name exists already");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("sign-up.jsp");
+            requestDispatcher.include(request,response);
+            }
+            else{
             
             UserDao dao = new UserDao(DbCon.getConnection());
             if(dao.userExists(signupEmail)){
@@ -62,8 +75,7 @@ public class SignUpServlet extends HttpServlet {
                 dao.userSignUp(signupEmail, username,address,gender, passwd1);
                 response.sendRedirect("user_login.jsp");
             }
-            
-             
+            }
             
             
 

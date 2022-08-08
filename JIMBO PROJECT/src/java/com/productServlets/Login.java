@@ -37,7 +37,7 @@ public class Login extends HttpServlet {
 
                 response.sendRedirect("index.jsp");
             } else {
-           request.setAttribute("error","Make sure you have provided the right details");
+           request.setAttribute("error","Incorrect Login. Make sure you have provided the right details");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("user_login.jsp");
             requestDispatcher.include(request,response);
 

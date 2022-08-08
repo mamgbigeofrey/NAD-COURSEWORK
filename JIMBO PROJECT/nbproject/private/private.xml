@@ -7,12 +7,18 @@
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/css/dashboard_style.css</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/css/style.css</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/admin_login.jsp</file>
-            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/SIgnUpServlet.java</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/cart.jsp</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/models/User.java</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/admin.jsp</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/dbConnection/DbCon.java</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/productServlets/Login.java</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/SignUpServlet.java</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/DBMan/UserDao.java</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/StaffRegister.java</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/cart.jsp</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/DBMan/ProductDao.java</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/sign-up.jsp</file>
-            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/admin.jsp</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/DBMan/OrderDao.java</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/Admin_authentication.java</file>
         </group>
     </open-files>
