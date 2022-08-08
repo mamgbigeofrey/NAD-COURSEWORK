@@ -27,7 +27,7 @@ public class Admin_authentication extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             
              try {
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nadcoursework", "root", "");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "");
                 Statement statement=conn.createStatement();
                 String username=request.getParameter("username");
                 String password=request.getParameter("password");
@@ -36,7 +36,7 @@ public class Admin_authentication extends HttpServlet {
                 ResultSet rs =statement.executeQuery("select * from admin where email='"+username+"' and password='"+password+"'");
                
                 if(rs.next()){
-                    String name=rs.getString("manager_name");
+                    String name=rs.getString("fname");
                     HttpSession session=request.getSession();
                     session.setAttribute("name", name);
                     session.setAttribute("user", username);
