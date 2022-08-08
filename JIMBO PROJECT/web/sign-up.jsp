@@ -30,7 +30,7 @@
              Confirm Password * 
             <input type="password" name="confirm-password" placeholder="Re-enter password" required>
           </div>
-
+          <h2>${passwderror}</h2>
           <button type="submit">SIGN UP</button>
         </form>
       </div>

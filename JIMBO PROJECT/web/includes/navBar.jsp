@@ -12,17 +12,24 @@ if (auth != null) {
 
 <nav>
     <div id="header1">
-                <span>
+        <span id="header1-left">
+                    <%if(auth != null){%>
+                       <a href="menu.jsp"><i class="fa-solid fa-bars"></i></a>
+                       <%}
+%>
                    <a href="index.jsp"><h2> JIMBO</h2></a>
-                </span>
+                </span> 
         <div id="sign-in">
             <a href="index.jsp">HOME</a>
             <a href="#">CONTACT US</a>
             <%if(auth != null){
             
          %>
+      
          <a href="orders.jsp">ORDERS</a>
             <a href="log-out">LOGOUT</a>
+            <a href="user-dashboard.jsp"> <i class="fa-solid fa-circle-user"></i></a>
+           
             <%}else{%>
             <a href="user_login.jsp">LOGIN</a>
             <%}%>

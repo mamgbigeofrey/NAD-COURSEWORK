@@ -1,10 +1,11 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 import com.DBMan.*;
 //import com.models.*;
 import com.dbConnection.*;
+import jakarta.servlet.RequestDispatcher;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,11 +40,19 @@ public class SignUpServlet extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             String signupEmail = request.getParameter("email");
             String username = request.getParameter("username");
-//            String passwd1 = request.getParameter("password");
+            String passwd1 = request.getParameter("password");
             String passwd2 = request.getParameter("confirm-password");
+            
+//            if(!(passwd1.compare(passwd2))){
+//                request.setAttribute("passwderror","Please make sure your passwords match!");
+//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("sign-up.jsp");
+//                requestDispatcher.include(request, response);
+////                response.sendRedirect("sign-up.jsp");
+//            }
+            
             UserDao dao = new UserDao(DbCon.getConnection());
             if(dao.userExists(signupEmail)){
-                out.print("USer already exits");
+                
                 response.sendRedirect("user_login.jsp");
             }
             else{
@@ -51,8 +60,7 @@ public class SignUpServlet extends HttpServlet {
                 response.sendRedirect("user_login.jsp");
             }
             
-            
-            
+             
             
             
 

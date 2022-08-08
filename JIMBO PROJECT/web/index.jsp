@@ -73,6 +73,11 @@
                 </a>
             </div>
         </div>
+        
+        
+        <div id="mwine1" style="width:100vw; background: black;">
+            <i  aria-hidden="false" class="fa fa-heart"></i>
+        </div>
 
         <div class="container-fluid-section product-section-container">
             <div id="product-section">
@@ -109,7 +114,7 @@
                                 <div class="mt-3 d-flex justify-content-between">
                                     <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> 
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
-                                    <span><i onclick="Toggle()" aria-hidden="false" class="fa fa-heart"></i></span>
+                                    <span><i onclick="Toggle()" aria-hidden="false" class="fa heart-shirts fa-heart"></i></span>
 
                                 </div>
                             </div>
@@ -265,7 +270,12 @@
         <script src="https://kit.fontawesome.com/b53e7ecf2c.js" crossorigin="anonymous"></script>
 
         <script>
-
+//            var heartShirts = document.getElementsByClassName("heart-shirts");
+//            heartShirts.addEventListener('click',Toggle());
+//            function Toggle(){
+//                heartShirts.style.color='red';
+//            }
+//      
 
         </script>
     </body>

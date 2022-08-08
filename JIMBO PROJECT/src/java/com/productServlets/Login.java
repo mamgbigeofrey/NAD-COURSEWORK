@@ -14,7 +14,7 @@ import com.dbConnection.DbCon;
 import com.DBMan.*;
 import com.models.*;
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.http.HttpSession;
+//import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login-user")
 public class Login extends HttpServlet {
@@ -28,7 +28,6 @@ public class Login extends HttpServlet {
 
             String email = request.getParameter("login-email");
             String password = request.getParameter("login-password");
-
             UserDao udao = new UserDao(DbCon.getConnection());
             User user = udao.userLogin(email, password);
 

@@ -3,14 +3,14 @@
 }
 
 @font-face {
-    font-family: jimbo-font ;
+    font-family: jimbo-font-regular ;
     src: url(../sf-pro-display-cufonfonts/SFPRODISPLAYREGULAR.OTF);
 
 }
 
 
 @font-face {
-    font-family: fa-brands;
+    font-family: 'jimbo-font-bold';
     src: url(../sf-pro-display-cufonfonts/SFPRODISPLAYBOLD.OTF);
 
 }
@@ -37,12 +37,9 @@ img#cart-img {
 nav{
     width:100%;
      padding:0 30px;
-   
-    height: 100px;
-    background: white;
-    
+    background: white; 
     align-items: center;
-    font-family: fa-brands;
+    font-family:'jimbo-font-bold';
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -50,9 +47,16 @@ nav{
     
 }
 header{
+     height: 100px;
     
     
 }
+#header1-left{
+    display: flex;
+    align-items: center;
+    gap:50%;
+}
+
 #header1 h2{
     font-weight:bolder;
 }
@@ -68,7 +72,7 @@ header{
 }
 
 header h2{
-    font-family: jimbo-font;
+    font-family: 'jimbo-font-regular';
 }
 
 div#header2 {
@@ -86,7 +90,8 @@ div#header2 {
 
 .carousel-container{
     width:75% !important;
-    margin:80px auto !important;
+    margin:5px auto !important;
+    
     /*height:80vh;*/
 }
 .carousel-inner h3{
@@ -407,7 +412,32 @@ footer{
           width: 98%;
         }
       }
+      /*style the like/heart icon in the product card*/ 
+      .fa-heart, .fa-bars,.fa-circle-user{
+          font-size: 25px;
+      }
+  /*//styling the table on the cart page*/
+  #table-cart{
+      font-family: 'jimbo-font-bold';
+      margin-top: 20px;
+  }
+  .cart-display-container{
+         position:relative;
+         top:100px;
+  }
+  
+     .checkout-container{
+         display:flex;
+         justify-content: space-between;
+         width:40%;
+         align-items: center;
+         margin:auto auto;
+         
       
+          
+              
+            }
+  
       
  
     

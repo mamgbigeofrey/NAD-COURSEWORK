@@ -45,13 +45,7 @@ if (cart_list != null) {
             }
 
 
-            .checkout-container{
-                display: flex;
-                justify-content: center;
-                height: 50px;
-                align-items: center;
-                margin: 40px;
-            }
+         
         </style>
     </head>
     <body>
@@ -79,12 +73,12 @@ if (cart_list != null) {
 
 
 
-        <div class="container-fluid my-3">
-            <div class="d-flex checkout-container">
+        <div class="container-fluid cart-display-container">
+            <div class="checkout-container">
                 <h3>Total Price:UGX ${(total>0)?dcf.format(total):0} </h3>
                 <a class="btn btn-success" style="height:30px;  text-align: center" href="cart-check-out">Check Out</a>
             </div>
-            <table>
+            <table id="table-cart">
                 <thead>
                     <tr>
                         <th scope="col"  >Name</th>
