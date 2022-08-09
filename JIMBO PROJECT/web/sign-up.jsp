@@ -10,6 +10,8 @@
 
     <section class="accout_creation">
       <div class="account_details_container">
+          <h2 style="color:red; text-align: center;">${password3rror}</h2>
+          <h2 style="color:red; text-align: center;">${passworderror}</h2>
         <form id="my_form" class="form-spacing" method="post" action="sign-up">
           <h4>Create New Account</h4>
           <hr>
@@ -52,15 +54,14 @@
              Confirm Password * 
             <input type="password" name="confirm-password" placeholder="Re-enter password" required>
           </div>
-          <!--<h3 style="color:red">${passwderror}</h3>-->
           <button type="submit">SIGN UP</button>
         </form>
       </div>
 
-      <div class="redirect_to_sign_in">
+     <!-- <div class="redirect_to_sign_in">
    
         <a href="user_login.jsp"> <p>I already have an existing account</p></a>
-      </div>
+      </div>-->
 
 
     </section>

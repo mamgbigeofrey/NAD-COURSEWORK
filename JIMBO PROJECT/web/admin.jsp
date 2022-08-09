@@ -5,10 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@page import="com.models.*"%>
-=======
->>>>>>> 4bcec578347b18f2350886b8b038f6f674e86e6c
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -22,17 +19,9 @@
 <body>
     <%
         response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
-<<<<<<< HEAD
         if(session.getAttribute("auth")==null){
         response.sendRedirect("admin_login.jsp");
         }
-        
-         
-=======
-        if(session.getAttribute("user")==null || session.getAttribute("pass")==null){
-        response.sendRedirect("admin_login.jsp");
-        }
->>>>>>> 4bcec578347b18f2350886b8b038f6f674e86e6c
     
     %>
   <div class="sidebar">
@@ -90,7 +79,6 @@
           </a>
         </li>
         <li class="log_out">
-<<<<<<< HEAD
             <a href="admin-logout">
             <i class='bx bx-log-out'></i>
             <span class="links_name">
@@ -100,18 +88,6 @@
             </span>
           </a>
         </li> 
-=======
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">
-                 <form method="get" action="log-out">
-                    <button type="submit" style="background: transparent; color: white; 
-                            border: none;cursor: pointer;">LOG OUT</button>
-                </form>
-            </span>
-          </a>
-        </li>
->>>>>>> 4bcec578347b18f2350886b8b038f6f674e86e6c
       </ul>
   </div>
   <section class="home-section">
@@ -125,7 +101,6 @@
         <i class='bx bx-search' ></i>
       </div>
       <div class="profile-details">
-<<<<<<< HEAD
        <span class="admin_name">
             <%if(session.getAttribute("auth")!=null){
              Admin auth = (Admin) session.getAttribute("auth");
@@ -135,17 +110,6 @@
             <i class="fa-solid fa-user-shield" style="color:#081d45"></i> 
         </span>
        </div>
-=======
-        <img src="pages/admin-dashboard/images/profile.jpg" alt="">
-        <span class="admin_name">
-            <%
-            out.print("Logged in as "+ session.getAttribute("name")) ;
-            
-            %>
-        </span>
-        <i class='bx bx-chevron-down' ></i>
-      </div>
->>>>>>> 4bcec578347b18f2350886b8b038f6f674e86e6c
     </nav>
 
     <div class="home-content">
@@ -248,11 +212,7 @@
           </ul>
           </div>
           <div class="button">
-<<<<<<< HEAD
               <a href="#">See All</a>
-=======
-            <a href="#">See All</a>
->>>>>>> 4bcec578347b18f2350886b8b038f6f674e86e6c
           </div>
         </div>
         <div class="top-sales box">
@@ -318,10 +278,7 @@
       </div>
     </div>
   </section>
-<<<<<<< HEAD
         <script src="https://kit.fontawesome.com/b53e7ecf2c.js" crossorigin="anonymous"></script>
-=======
->>>>>>> 4bcec578347b18f2350886b8b038f6f674e86e6c
 
   <script>
    let sidebar = document.querySelector(".sidebar");
