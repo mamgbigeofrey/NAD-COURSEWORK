@@ -146,7 +146,7 @@ a
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #ccc;
+    color:black;
     margin-bottom: 18px;
 }
 
@@ -185,8 +185,7 @@ a
 .product-price small {
     font-size: 80%;
     font-weight: 400;
-    text-decoration: line-through;
-    /*display: inline-block;*/
+  
     margin-right: 5px;
 }
 

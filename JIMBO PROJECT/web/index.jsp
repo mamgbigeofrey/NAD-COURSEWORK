@@ -115,12 +115,12 @@
                         <img src="product-image/shirts/<%=p.getImage()%>" alt="">
                         </div>
                         <div class="product-details">
-                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <span class="product-catagory">Category: <%=p.getCategory()%></span>
                             <h4><a href=""><%=p.getName() %></a></h4>
                             <div class="product-bottom-details">
                                 <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
                                 <div class="product-links">
-                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a  href="#"><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
                                     <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
@@ -154,12 +154,12 @@
                         <img src="product-image/jackets/<%=p.getImage()%>" alt="">
                         </div>
                         <div class="product-details">
-                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <span class="product-catagory">Category: <%=p.getCategory()%></span>
                             <h4><a href=""><%=p.getName() %></a></h4>
                             <div class="product-bottom-details">
                                 <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
                                 <div class="product-links">
-                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a  href="#"><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
                                     <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
@@ -194,12 +194,12 @@
                         <img src="product-image/shoes/<%=p.getImage()%>" alt="">
                         </div>
                         <div class="product-details">
-                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <span class="product-catagory">Category: <%=p.getCategory()%></span>
                             <h4><a href=""><%=p.getName() %></a></h4>
                             <div class="product-bottom-details">
                                 <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
                                 <div class="product-links">
-                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a  href="#"><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
                                     <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
@@ -236,11 +236,11 @@
                         </div>
                         <div class="product-details">
                             <span class="product-catagory">Category: <%=p.getCategory()%></span>
-                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <h4><%=p.getName() %></h4>
                             <div class="product-bottom-details">
                                 <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
                                 <div class="product-links">
-                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a  href="#" ><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
                                     <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
