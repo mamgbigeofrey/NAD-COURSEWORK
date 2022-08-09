@@ -15,11 +15,11 @@
           <hr>
           <div class="form-group">
             Your Name * 
-            <input type="text" name=" firstName" placeholder="First Name" required>
+            <input type="text" name="firstName" placeholder="First Name" required>
           </div>
            <div class="form-group">
             Your Name * 
-            <input type="text" name=" lastName" placeholder="Last Name" required>
+            <input type="text" name="lastName" placeholder="Last Name" required>
           </div>
           <div class="form-group">
              Your Email *
