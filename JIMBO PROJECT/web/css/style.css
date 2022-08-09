@@ -1,6 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+*
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 :root {
     --font-family: url(../fontawesome-free-6.1.2-web/webfonts/fa-solid-900.woff2);
-}
+}*/
 
 @font-face {
     font-family: jimbo-font-regular ;
@@ -22,13 +32,13 @@
 
 body {
     background-color:white !important;
-    
+
     margin: 0;
     width: 100vw;
     overflow-x: hidden;
     padding: 0;
 }
-/*header and the components styling*/ 
+/*header and the components styling*/
 
 img#cart-img {
     height: 30px;
@@ -36,20 +46,20 @@ img#cart-img {
 }
 nav{
     width:100%;
-     padding:0 30px;
-    background: white; 
+    padding:0 30px;
+    background: white;
     align-items: center;
     font-family:'jimbo-font-bold';
     position: fixed;
     z-index: 9999;
     top: 0;
     left:0;
-    
+
 }
 header{
-     height: 100px;
-    
-    
+    height: 100px;
+
+
 }
 #header1-left{
     display: flex;
@@ -85,13 +95,141 @@ div#header2 {
 
 
 
+} 
+
+
+a
+{
+    text-decoration: none;
 }
+.product-card {
+    width: 380px;
+    position: relative;
+    box-shadow: 0 2px 7px #dfdfdf;
+    margin: 50px auto;
+    background: #fafafa;
+}
+
+.badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: red;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    padding: 50px;
+    background: #f0f0f0;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 30px;
+    background-color: #EBA239;
+}
+
+.product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ccc;
+    margin-bottom: 18px;
+}
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: #363636;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ 
+
+ 
+
+.product-bottom-details {
+    display: flex;
+    width:100%;
+    flex-direction: column;
+ 
+}
+
+.product-bottom-details div {
+    float: left;
+    width: 50%;
+}
+
+.product-price {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    /*display: inline-block;*/
+    margin-right: 5px;
+}
+
+.product-links {
+    display:flex;
+   justify-content: space-evenly;
+   margin:10px auto 0 auto;
+   gap:20px
+ 
+   
+   
+   
+   
+    
+}
+
+.contentCard{
+    /*box-sizing: border-box;*/
+    text-align: center;
+    border-radius:10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+    transition: .5s;
+    background: #f2f2f2;
+}
+
+.product-links a {
+    display: inline-block;
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.product-links a:hover {
+    color: #fbb72c;
+}
+ 
 /*carousel styling*/
 
 .carousel-container{
     width:75% !important;
     margin:5px auto !important;
-    
+
     /*height:80vh;*/
 }
 .carousel-inner h3{
@@ -114,14 +252,14 @@ div#header2 {
     text-align: center;
 }
 .container-fluid-section h2:hover{
-    box-shadow: 10px 5px 5px rgba(0,0,0,0.25),10px 5px 5px rgba(0,0,0,0.22); 
+    box-shadow: 10px 5px 5px rgba(0,0,0,0.25),10px 5px 5px rgba(0,0,0,0.22);
     transition: .2s;
     color:white;
 }
- 
- 
+
+
 .container-fluid-section{
- 
+
     margin:auto auto;
 }
 .product-section{
@@ -131,9 +269,9 @@ div#header2 {
     align-items: center;
     text-align: center;
     width: 90%;
-     padding:0 50px 0;
-     color:black;
-box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    padding:0 50px 0;
+    color:black;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
 }
 .product-card{
     margin-left: 0 !important;
@@ -141,7 +279,7 @@ box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
 hr {
     border: 2px solid black !important;
     margin:0 30px 0 0 !important;
- 
+
 }
 
 a {
@@ -151,7 +289,7 @@ a {
 a:hover{
     text-decoration: none !important;
 }
- 
+
 
 .category-list {
     margin: 0 20px 0 0;
@@ -159,7 +297,7 @@ a:hover{
 }
 
 .category-list:hover {
-       background-color: #3B814E;
+    background-color: #3B814E;
     color:#fff !important;
     padding: 5px;
     text-decoration: none;
@@ -190,16 +328,8 @@ a:hover{
     margin: 0;
     padding-top:10px ;
 }
- 
- 
-.contentCard{
-    box-sizing: border-box;
-    text-align: center;
-    border-radius:20px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
-    transition: .5s;
-    background: #f2f2f2;
-}
+
+
 .product-section img{
     width: 100%;
 }
@@ -208,13 +338,13 @@ a:hover{
 }
 .card-img-top{
     border-radius:20px 20px 0 0 !important;
-    
+
 }
 .contentCard:hover{
     box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transform: translate(0, -5px);
 }
- 
+
 p{
     text-align: center;
     color: #b2b2c3;
@@ -226,7 +356,7 @@ p{
     color: #222f3e;
     margin: 0;
 }
- .products-container{
+.products-container{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -234,13 +364,13 @@ p{
     width:95%;
     margin:auto auto;
     /*background: #EFF2FE;*/
-   
+
 
 }
 footer{
     position: absolute;
- margin: auto auto;
- left: 0;
+    margin: auto auto;
+    left: 0;
     height: 500px;
     width: 100vw;
     background: #0e0e0e;
@@ -251,202 +381,201 @@ footer{
     color: white;
     bottom: 30px;
 }
- 
 
- /*==============css for the account creation page=========*/
-      .account_details_container{
-        width: 50%;
-        margin: auto;
-        background: whitesmoke;
-        border-top: 3px solid #5cb874;
-        border-bottom: 3px solid #5cb874;
-        margin-top: 100px;
 
-      }
-      .account_details_container .form-spacing{
-        width: 90%;
-        margin: auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
+/*==============css for the account creation page=========*/
+.account_details_container{
+    width: 50%;
+    margin: auto;
+    background: whitesmoke;
+    border-top: 3px solid #5cb874;
+    border-bottom: 3px solid #5cb874;
+    margin-top: 100px;
 
-      }
-      .account_details_container .form-spacing h4{
-        background: white;
-        padding-top: 20px;
-        text-align: center;
-        color: seagreen;
-        padding-bottom: 10px;
-      }
-      .account_details_container .form-spacing .form-group:not(:last-child){
-        margin-bottom: -5px;
-      }
-      .account_details_container .form-spacing .form-group input{
-        height: 44px;
-        border-radius: 4px;
-        margin-top: 5px;
-        margin-bottom: 20px;
-        background: white;
-        width: 96%;
-        margin-left: 10px;
-      }
-      .account_details_container .form-spacing .form-group label{
-        margin-left: 10px;
-        font-weight: bold;
-      }
-      .account_details_container .form-spacing button{
-        width: 100%;
-        text-transform: uppercase;
-        border-radius: 4px;
-        color: white;
-        cursor: pointer;
-        background: #5cb874;
-        height: 44px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-      .form-group .form-group-select{
-           height: 44px;
-            border-radius: 4px;
-            margin-top: 5px;
-            margin-bottom: 20px;
-            background: white;
-            width: 96%;
-            margin-left: 10px;
-      }
-      .redirect_to_sign_in{
-        width: 50%;
-        margin: auto;
-        background: whitesmoke;
-        margin-top: 40px;
-        text-align: center;
-      }
-      .redirect_to_sign_in p{
-        margin-top: 20px;
-      }
-      .redirect_to_sign_in a button{
-        width: 50%;
-        text-transform: uppercase;
-        height: 44px;
-        background: #5cb874;
-        color: white;
-        border-radius: 4px;
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-      @media(max-width: 700px){
-        .account_details_container, .redirect_to_sign_in{
-          width: 98%;
-        }
-      }
-      
+}
+.account_details_container .form-spacing{
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
-      /*==========css for login page=========*/
-      .account_login_container{
-        width: 50%;
-        margin: auto;
-        background: whitesmoke;
-        border-top: 3px solid #5cb874;
-        border-bottom: 3px solid #5cb874;
-        margin-top: 100px;
+}
+.account_details_container .form-spacing h4{
+    background: white;
+    padding-top: 20px;
+    text-align: center;
+    color: seagreen;
+    padding-bottom: 10px;
+}
+.account_details_container .form-spacing .form-group:not(:last-child){
+    margin-bottom: -5px;
+}
+.account_details_container .form-spacing .form-group input{
+    height: 44px;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: white;
+    width: 96%;
+    margin-left: 10px;
+}
+.account_details_container .form-spacing .form-group label{
+    margin-left: 10px;
+    font-weight: bold;
+}
+.account_details_container .form-spacing button{
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    background: #5cb874;
+    height: 44px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.form-group .form-group-select{
+    height: 44px;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: white;
+    width: 96%;
+    margin-left: 10px;
+}
+.redirect_to_sign_in{
+    width: 50%;
+    margin: auto;
+    background: whitesmoke;
+    margin-top: 40px;
+    text-align: center;
+}
+.redirect_to_sign_in p{
+    margin-top: 20px;
+}
+.redirect_to_sign_in a button{
+    width: 50%;
+    text-transform: uppercase;
+    height: 44px;
+    background: #5cb874;
+    color: white;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+@media(max-width: 700px){
+    .account_details_container, .redirect_to_sign_in{
+        width: 98%;
+    }
+}
 
-      }
-      .account_login_container .form-spacing{
-        width: 90%;
-        margin: auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
-      .account_login_container .form-spacing h4{
-        background:white;
-        text-align: center;
-        color: green;
-        padding-top: 10px;
-        text-transform: uppercase;
-        padding-bottom: 10px;
 
-      }
-      .account_login_container .form-spacing .form-group{
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-      .account_login_container .form-spacing .form-group input{
-        height: 44px;
-        border-radius: 4px;
-        margin-top: 5px;
-        margin-bottom: 20px;
-        background: white;
-        width: 96%;
-        margin-left: 10px;
-      }
-      .account_login_container .form-spacing .form-group label{
-        margin-left: 10px;
-        font-weight: bold;
-      }
-      .account_login_container .form-spacing button{
-        width: 100%;
-        text-transform: uppercase;
-        border-radius: 4px;
-        color: white;
-        cursor: pointer;
-        background: #5cb874;
-        height: 44px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-      .redirect_to_sign_up{
-        width: 50%;
-        margin: auto;
-        background: whitesmoke;
-        margin-top: 40px;
-        text-align: center;
-      }
-      .redirect_to_sign_up p{
-        margin-top: 20px;
-      }
-      .redirect_to_sign_up a button{
-        width: 50%;
-        text-transform: uppercase;
-        height: 44px;
-         
-        color: white;
-        border-radius: 4px;
-        margin-top: 20px;
-        margin-bottom: 10px;
+/*==========css for login page=========*/
+.account_login_container{
+    width: 50%;
+    margin: auto;
+    background: whitesmoke;
+    border-top: 3px solid #5cb874;
+    border-bottom: 3px solid #5cb874;
+    margin-top: 100px;
 
-      }
-   
-      
-      @media(max-width: 700px){
-        .account_login_container, .redirect_to_sign_up{
-          width: 98%;
-        }
-      }
-      /*style the like/heart icon in the product card*/ 
-      .fa-heart, .fa-bars,.fa-circle-user{
-          font-size: 25px;
-      }
-  /*//styling the table on the cart page*/
-  #table-cart{
-      font-family: 'jimbo-font-bold';
-      margin-top: 20px;
-  }
-  .cart-display-container{
-         position:relative;
-         top:100px;
-  }
-  
-     .checkout-container{
-         display:flex;
-         justify-content: space-between;
-         width:40%;
-         align-items: center;
-         margin:auto auto;
-         
-      
-          
-              
-            }
-  
-      
- 
-    
+}
+.account_login_container .form-spacing{
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.account_login_container .form-spacing h4{
+    background:white;
+    text-align: center;
+    color: green;
+    padding-top: 10px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+
+}
+.account_login_container .form-spacing .form-group{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.account_login_container .form-spacing .form-group input{
+    height: 44px;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: white;
+    width: 96%;
+    margin-left: 10px;
+}
+.account_login_container .form-spacing .form-group label{
+    margin-left: 10px;
+    font-weight: bold;
+}
+.account_login_container .form-spacing button{
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    background: #5cb874;
+    height: 44px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.redirect_to_sign_up{
+    width: 50%;
+    margin: auto;
+    background: whitesmoke;
+    margin-top: 40px;
+    text-align: center;
+}
+.redirect_to_sign_up p{
+    margin-top: 20px;
+}
+.redirect_to_sign_up a button{
+    width: 50%;
+    text-transform: uppercase;
+    height: 44px;
+
+    color: white;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+
+@media(max-width: 700px){
+    .account_login_container, .redirect_to_sign_up{
+        width: 98%;
+    }
+}
+/*style the like/heart icon in the product card*/
+.fa-heart, .fa-bars,.fa-circle-user{
+    font-size: 25px;
+}
+/*//styling the table on the cart page*/
+#table-cart{
+    font-family: 'jimbo-font-bold';
+    margin-top: 20px;
+}
+.cart-display-container{
+    position:relative;
+    top:100px;
+}
+
+.checkout-container{
+    display:flex;
+    justify-content: space-between;
+    width:40%;
+    align-items: center;
+    margin:auto auto;
+
+
+
+
+}
+
+
+/*side babr for the index*/

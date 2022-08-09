@@ -15,7 +15,11 @@
           <hr>
           <div class="form-group">
             Your Name * 
-            <input type="text" name="username" placeholder="Name" required>
+            <input type="text" name=" firstName" placeholder="First Name" required>
+          </div>
+           <div class="form-group">
+            Your Name * 
+            <input type="text" name=" lastName" placeholder="Last Name" required>
           </div>
           <div class="form-group">
              Your Email *
@@ -26,11 +30,16 @@
             <input type="text" name="address" placeholder="Enter address" required>
           </div>
            <div class="form-group">
+             Age* 
+            <input type="number" name="age" placeholder="select age" required>
+          </div>
+           <div class="form-group">
             Gender * 
             <select name="gender" class="form-group-select">
-                <option default >----Select Gender----</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                
+                <option>----Select Gender----</option>
+                <option value ="Male" name="gender">Male</option>
+                <option value="Female" name="gender">Female</option>
 
             </select>
           </div>
@@ -43,7 +52,7 @@
              Confirm Password * 
             <input type="password" name="confirm-password" placeholder="Re-enter password" required>
           </div>
-          <h3 style="background: red;">${passwderror}</h3>
+          <!--<h3 style="color:red">${passwderror}</h3>-->
           <button type="submit">SIGN UP</button>
         </form>
       </div>

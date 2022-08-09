@@ -2,24 +2,28 @@ package com.models;
 
 public class User {
 	private int id;
-	private String name;
+	private String firstName;
+        private String lastName;
 	private String email;
 	private String password;
         private String address;
         private String gender;
+        private int age;
         
         
 
 	public User() {
 	}
 
-	public User(int id, String name, String email, String password,String address,String gender) {
+	public User(int id, String firstName,  String lastName,String email, String password,String address,String gender,int age) {
 		this.id = id;
-		this.name = name;
+		this.firstName = firstName;
+                this.lastName = lastName;
 		this.email = email;
 		this.password = password;
                 this.gender = gender;
                 this.password = address;
+                this.age = age;
 	}
 
 	public int getId() {
@@ -29,13 +33,17 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
+        public String getName(){
+            String name = this.firstName +" "+ this.lastName;
+            return name;
+        }
  
-	public String getName() {
-		return name;
+	 public void setLastName(String name) {
+		this.lastName = name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String name) {
+		this.firstName = name;
 	}
 
 	public String getEmail() {
@@ -67,10 +75,17 @@ public class User {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+            public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ",address=" + address + ",gender=" + gender + ", password=" + password + "]";
+		return "User [id=" + id + ", name=" + firstName+" "+lastName + ", email=" + email + ",address=" + address + ",gender=" + gender + ", password=" + password + "]";
 	}
 	
 }

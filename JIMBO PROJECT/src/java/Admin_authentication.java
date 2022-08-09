@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
+import com.dbConnection.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,54 +12,51 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import com.models.*;
 
 /**
  *
- * @author Hp
+ * @author mwine
  */
 public class Admin_authentication extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
-         PrintWriter out = response.getWriter();
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            response.setContentType("text/html;charset=UTF-8");
+
+            PrintWriter out = response.getWriter();
             
-             try {
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "");
-                Statement statement=conn.createStatement();
-                String username=request.getParameter("username");
-                String password=request.getParameter("password");
-                
-                
-                ResultSet rs =statement.executeQuery("select * from admin where email='"+username+"' and password='"+password+"'");
-               
-                if(rs.next()){
-                    String name=rs.getString("fname");
-                    HttpSession session=request.getSession();
-                    session.setAttribute("name", name);
-                    session.setAttribute("user", username);
-                    session.setAttribute("pass", password);
+            Connection conn = DbCon.getConnection();
+            String query = "select * from admin where username=? and password=?";
+            PreparedStatement pst = conn.prepareStatement(query);
 
-                    response.sendRedirect("admin.jsp");
-                }
-                else{
-                    out.println("Incorrect login details. Please try again");
-                }
-         
-            conn.close();
-             } catch (SQLException ex) {
-                 out.print( ex.getMessage());
-             }
-        } catch (ClassNotFoundException ex) {
-            out.print( ex.getMessage());
+            pst.setString(1, request.getParameter("username"));
+            pst.setString(2, request.getParameter("password"));
+      
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                Admin auth = new Admin();
+                auth.setUsername(rs.getString("username"));
+                auth.setPasswd(rs.getString("password"));
+                
+
+                HttpSession session = request.getSession();
+                session.setAttribute("auth", auth);
+                response.sendRedirect("admin.jsp");
+            } else {
+
+                response.sendRedirect("admin_login.jsp");
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Admin_authentication.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+
     }
-
-    
-
-  
-
-
+}

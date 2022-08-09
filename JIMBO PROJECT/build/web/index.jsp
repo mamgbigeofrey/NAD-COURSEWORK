@@ -4,6 +4,7 @@
 <%@page import="java.util.*"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+
 <!DOCTYPE html>
 <html>
 
@@ -13,8 +14,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
 
 
@@ -28,15 +32,20 @@
                 background-color:#EBA239;
 
             }
+
+
         </style>
 
     </head>
 
     <body class="container-fluid">
+
         <header>
             <%@include file="includes/navBar.jsp" %>
         </header>
         <br>
+        <!--<div class="hero">-->
+
         <!--carousel showcasing-->
 
 
@@ -73,11 +82,9 @@
                 </a>
             </div>
         </div>
-        
-        
-        <div id="mwine1" style="width:100vw; background: black;">
-            <i  aria-hidden="false" class="fa fa-heart"></i>
-        </div>
+
+
+
 
         <div class="container-fluid-section product-section-container">
             <div id="product-section">
@@ -85,7 +92,7 @@
                 <%
   ProductDao pd = new ProductDao(DbCon.getConnection());
   List<Product> products = pd.getAllProducts();
-  ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+  ArrayList<Cart> cart_list = (ArrayList<Cart>)request.getSession().getAttribute("cart-list");
   if (cart_list != null) {
           request.setAttribute("cart_list", cart_list);
   }
@@ -100,30 +107,31 @@
                     <%
                             if (!products.isEmpty()) {
                                     for (Product p : products) {
-                                    int k =0;
-                                    while(k<5){
+                                    
                                         if(p.getCategory().equals("shirts")){
                     %>
-                    <div class="col-md-3 my-3 product-card">
-                        <div class="contentCard ">
-                            <img class="card-img-top" src="product-image/<%=p.getImage()%>" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><%=p.getName() %></h5>
-                                <h6 class="price">Price: $<%=p.getPrice() %></h6>
-
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> 
+                    <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/shirts/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
-                                    <span><i onclick="Toggle()" aria-hidden="false" class="fa heart-shirts fa-heart"></i></span>
-
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <%
-                    }k++;}}
+                    } }
                     } else {
-                    out.println("There is no proucts");
+                    out.println("There is no products");
                     }
                     %>
                 </div> <br>
@@ -138,31 +146,30 @@
                     <%
                             if (!products.isEmpty()) {
                                     for (Product p : products) {
-                                     int j =0;
-                                    while(j<5){
+                                    
                                         if( p.getCategory().equals("jackets")){
                     %>
-                    <div class="col-md-3 my-3">
-                        <div class="card w-100 contentCard">
-                            <img class="card-img-top" src="product-image/<%=p.getImage() %>" alt="Card image cap">
-
-                            <div class="card-body">
-                                <h5 class="card-title"><%=p.getName() %></h5>
-                                <h6 class="price">Price: $<%=p.getPrice() %></h6>
-
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> 
+                          <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/jackets/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
-                                    <span><i onclick="Toggle()" aria-hidden="false" class="fa fa-heart"></i></span>
-
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <%
-                    }j++;}}
+                    } }
                     } else {
-                    out.println("There is no proucts");
+                    out.println("There is no products");
                     }
                     %>
                 </div>
@@ -179,31 +186,30 @@
                             if (!products.isEmpty()) {
                        
                                     for (Product p : products) {
-                                     int i =0;
-                                    while(i<5){
+                                    
                                         if( p.getCategory().equals("shoes")){
                     %>
-                    <div class="col-md-3 my-3">
-                        <div class="card w-100 contentCard">
-                            <img class="card-img-top" src="product-image/<%=p.getImage() %>" alt="Card image cap">
-
-                            <div class="card-body" >
-                                <h5 class="card-title"><%=p.getName() %></h5>
-                                <h6 class="price">Price: $<%=p.getPrice() %></h6>
-
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> 
+                       <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/shoes/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
-                                    <span><i onclick="Toggle()" aria-hidden="false" class="fa fa-heart"></i></span>
-
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <%
-                    }i++;} }
+                    }  }
                     } else {
-                    out.println("There is no proucts");
+                    out.println("There is no products");
                     }
                     %>
                 </div>
@@ -221,30 +227,30 @@
                             if (!products.isEmpty()) {
                        
                                     for (Product p : products) {
-                                     int i =0;
-                                    while(i<5){
-                                        if( p.getCategory().equals("shoes")){
+                                   
+                                        if( p.getCategory().equals("jewellery")){
                     %>
-                    <div class="col-md-3 my-3">
-                        <div class="card w-100 contentCard">
-                            <img class="card-img-top" src="product-image/<%=p.getImage() %>" alt="Card image cap">
-
-                            <div class="card-body">
-                                <h5 class="card-title"><%=p.getName() %></h5>
-                                <h6 class="price">Price: $<%=p.getPrice() %></h6>
-
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> 
+                   <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/jewellery/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: <%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
-                                    <span><i onclick="Toggle()" aria-hidden="false" class="fa fa-heart"></i></span>
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <%
-                    }i++;} }
+                    }  }
                     } else {
-                    out.println("There is no proucts");
+                    out.println("There is no products");
                     }
                     %>
                 </div>
@@ -257,14 +263,17 @@
         </div>
 
 
-
         <br>
         <br>
-
+        <!--</div>-->
         <footer>
             <div id="nad-project">
                 <small>NAD PROJECT</small>
             </div>
+
+
+
+
         </footer>
         <script src="js/style.js"></script>
         <script src="https://kit.fontawesome.com/b53e7ecf2c.js" crossorigin="anonymous"></script>
@@ -277,6 +286,18 @@
 //            }
 //      
 
+
+        </script>
+        <script>
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarBtn = document.querySelector(".sidebarBtn");
+            sidebarBtn.onclick = function () {
+                sidebar.classList.toggle("active");
+                if (sidebar.classList.contains("active")) {
+                    sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+                } else
+                    sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            };
         </script>
     </body>
 </html>

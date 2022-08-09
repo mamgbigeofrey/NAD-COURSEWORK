@@ -28,9 +28,11 @@
             <input type="password" name="login-password" placeholder="Enter your password" required>
           </div>
           
-          <div > <h3 style="background: red;">${error}</h3> </div>
+          <div > <h3 style="color: red;">${error}</h3> </div>
 
           <button type="submit">Sign In</button>
+          <h2 style="color:green;">${signUpSucess}</h2>
+            <h2 style="color:red;">${password3rror}</h2>
         </form>
       </div>
                

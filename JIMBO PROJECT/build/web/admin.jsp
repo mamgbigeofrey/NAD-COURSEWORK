@@ -1,296 +1,303 @@
-<%-- 
-    Document   : admin_dashboard
-    Created on : Aug 3, 2022, 8:48:30 PM
-    Author     : Mamgbi Geofrey
---%>
+<%@page import="com.dbConnection.*"%>
+<%@page import="com.DBMan.ProductDao"%>
+<%@page import="com.models.*"%>
+<%@page import="java.util.*"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title>  Admin Dashboard | Jimbo </title>
-    <link rel="stylesheet" href="css/dashboard_style.css">
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body>
-    <%
-        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
-        if(session.getAttribute("user")==null || session.getAttribute("pass")==null){
-        response.sendRedirect("admin_login.jsp");
-        }
-    
-    %>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">Jimbo</span>
-    </div>
-      <ul class="nav-links">
-        <li>
-          <a href="#" class="active">
-            <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">DASHBOARD</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-box' ></i>
-            <span class="links_name">Product</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Order list</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Analytics</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Stock</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="links_name">Total order</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Staff Management</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li>
-        <li class="log_out">
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">
-                 <form method="get" action="log-out">
-                    <button type="submit" style="background: transparent; color: white; 
-                            border: none;cursor: pointer;">LOG OUT</button>
-                </form>
-            </span>
-          </a>
-        </li>
-      </ul>
-  </div>
-  <section class="home-section">
-    <nav>
-      <div class="sidebar-button">
-        <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
-      </div>
-      <div class="profile-details">
-        <img src="pages/admin-dashboard/images/profile.jpg" alt="">
-        <span class="admin_name">
-            <%
-            out.print("Logged in as "+ session.getAttribute("name")) ;
-            
-            %>
-        </span>
-        <i class='bx bx-chevron-down' ></i>
-      </div>
-    </nav>
+<html>
 
-    <div class="home-content">
-      <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Order</div>
-            <div class="number">40,876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
-          </div>
-          <i class='bx bx-cart-alt cart'></i>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Sales</div>
-            <div class="number">38,876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
-          </div>
-          <i class='bx bxs-cart-add cart two' ></i>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Profit</div>
-            <div class="number">$12,876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
-          </div>
-          <i class='bx bx-cart cart three' ></i>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Return</div>
-            <div class="number">11,086</div>
-            <div class="indicator">
-              <i class='bx bx-down-arrow-alt down'></i>
-              <span class="text">Down From Today</span>
-            </div>
-          </div>
-          <i class='bx bxs-cart-download cart four' ></i>
-        </div>
-      </div>
+    <head><meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-      <div class="sales-boxes">
-        <div class="recent-sales box">
-          <div class="title">Recent Sales</div>
-          <div class="sales-details">
-            <ul class="details">
-              <li class="topic">Date</li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-            </ul>
-            <ul class="details">
-            <li class="topic">Customer</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">Sales</li>
-            <li><a href="#">Delivered</a></li>
-            <li><a href="#">Pending</a></li>
-            <li><a href="#">Returned</a></li>
-            <li><a href="#">Delivered</a></li>
-            <li><a href="#">Pending</a></li>
-            <li><a href="#">Returned</a></li>
-            <li><a href="#">Delivered</a></li>
-             <li><a href="#">Pending</a></li>
-            <li><a href="#">Delivered</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">Total</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
-          </div>
-          <div class="button">
-            <a href="#">See All</a>
-          </div>
-        </div>
-        <div class="top-sales box">
-          <div class="title">Top Seling Product</div>
-          <ul class="top-sales-details">
-            <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/sunglasses.jpg" alt="">
-              <span class="product">Vuitton Sunglasses</span>
-            </a>
-            <span class="price">$1107</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/jeans.jpg" alt="">
-              <span class="product">Hourglass Jeans </span>
-            </a>
-            <span class="price">$1567</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/nike.jpg" alt="">
-              <span class="product">Nike Sport Shoe</span>
-            </a>
-            <span class="price">$1234</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/scarves.jpg" alt="">
-              <span class="product">Hermes Silk Scarves.</span>
-            </a>
-            <span class="price">$2312</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/blueBag.jpg" alt="">
-              <span class="product">Succi Ladies Bag</span>
-            </a>
-            <span class="price">$1456</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/bag.jpg" alt="">
-              <span class="product">Gucci Womens's Bags</span>
-            </a>
-            <span class="price">$2345</span>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/addidas.jpg" alt="">
-              <span class="product">Addidas Running Shoe</span>
-            </a>
-            <span class="price">$2345</span>
-          </li>
-<li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/shirt.jpg" alt="">
-              <span class="product">Bilack Wear's Shirt</span>
-            </a>
-            <span class="price">$1245</span>
-          </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
-  <script>
-   let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".sidebarBtn");
-sidebarBtn.onclick = function() {
-  sidebar.classList.toggle("active");
-  if(sidebar.classList.contains("active")){
-  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
-}else
-  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-};
- </script>
+        <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
 
-</body>
+
+        <title>JIMBO | Home Page</title>
+        <style>
+            .fa-heart{
+                color:white;
+
+            }
+            .card-body{
+                background-color:#EBA239;
+
+            }
+
+
+        </style>
+
+    </head>
+
+    <body class="container-fluid">
+
+        <header>
+            <%@include file="includes/navBar.jsp" %>
+        </header>
+        <br>
+        <!--<div class="hero">-->
+
+        <!--carousel showcasing-->
+
+
+        <div class="carousel-container" style="margin-top: 150px; width:90%;">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="./images/shoesCarousel.jpg" alt="shoes" style="width:100%;">
+                        <!--<h3>YOU GET NICE SHOES</h3>-->
+                    </div>
+
+                    <div class="item">
+                        <img src="./images/shirtsCarousel.jpg" alt="shirts" style="width:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="./images/jewelleryCarousel.jpg" alt="jewellery" style="width:100%;">
+                    </div> <div class="item">
+                        <img src="./images/jewelleryCarousel.jpg" alt="jewellery" style="width:100%;">
+                    </div>
+
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Prev</span>
+                </a>
+
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <!--<span class="sr-only">Next</span>-->
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="container-fluid-section product-section-container">
+            <div id="product-section">
+
+                <%
+  ProductDao pd = new ProductDao(DbCon.getConnection());
+  List<Product> products = pd.getAllProducts();
+  ArrayList<Cart> cart_list = (ArrayList<Cart>)request.getSession().getAttribute("cart-list");
+  if (cart_list != null) {
+          request.setAttribute("cart_list", cart_list);
+  }
+                %>  
+
+                <br>
+                <h2 id="shirts-section">SHIRTS</h2>
+                <br>
+                <br>
+
+                <div class="products-container">
+                    <%
+                            if (!products.isEmpty()) {
+                                    for (Product p : products) {
+                                    
+                                        if(p.getCategory().equals("shirts")){
+                    %>
+                    <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/shirts/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%
+                    } }
+                    } else {
+                    out.println("There is no products");
+                    }
+                    %>
+                </div> <br>
+                <br>
+                <br>
+
+
+                <h2 id="jackets-section">JACKETS</h2>
+                <br>
+                <br>
+                <div class="products-container">
+                    <%
+                            if (!products.isEmpty()) {
+                                    for (Product p : products) {
+                                    
+                                        if( p.getCategory().equals("jackets")){
+                    %>
+                          <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/jackets/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                    } }
+                    } else {
+                    out.println("There is no products");
+                    }
+                    %>
+                </div>
+                <br>
+                <br>
+                <br>
+
+                <h2 id="shoes-section">SHOES</h2>
+                <br>
+                <br>
+                <div class="products-container">
+
+                    <%
+                            if (!products.isEmpty()) {
+                       
+                                    for (Product p : products) {
+                                    
+                                        if( p.getCategory().equals("shoes")){
+                    %>
+                       <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/shoes/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: $<%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                    }  }
+                    } else {
+                    out.println("There is no products");
+                    }
+                    %>
+                </div>
+                <br>
+                <br>
+                <br>
+
+                <h2 id="jewellery-section">JEWELLERY</h2>
+                <br>
+                <br>
+
+                <div class="products-container">
+
+                    <%
+                            if (!products.isEmpty()) {
+                       
+                                    for (Product p : products) {
+                                   
+                                        if( p.getCategory().equals("jewellery")){
+                    %>
+                   <div class="product-card contentCard">
+                        <div class="product-tumb">
+                        <img src="product-image/jewellery/<%=p.getImage()%>" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">Category: <%=p.getCategory()%></span>
+                            <h4><a href=""><%=p.getName() %></a></h4>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
+                                <div class="product-links">
+                                    <a  href=""><i class="fa fa-heart"></i></a>
+                                    <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+                                    <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                    }  }
+                    } else {
+                    out.println("There is no products");
+                    }
+                    %>
+                </div>
+                <br>
+                <br>
+                <br>
+
+
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <!--</div>-->
+        <footer>
+            <div id="nad-project">
+                <small>NAD PROJECT</small>
+            </div>
+
+
+
+
+        </footer>
+        <script src="js/style.js"></script>
+        <script src="https://kit.fontawesome.com/b53e7ecf2c.js" crossorigin="anonymous"></script>
+
+        <script>
+//            var heartShirts = document.getElementsByClassName("heart-shirts");
+//            heartShirts.addEventListener('click',Toggle());
+//            function Toggle(){
+//                heartShirts.style.color='red';
+//            }
+//      
+
+
+        </script>
+        <script>
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarBtn = document.querySelector(".sidebarBtn");
+            sidebarBtn.onclick = function () {
+                sidebar.classList.toggle("active");
+                if (sidebar.classList.contains("active")) {
+                    sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+                } else
+                    sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            };
+        </script>
+    </body>
 </html>
-

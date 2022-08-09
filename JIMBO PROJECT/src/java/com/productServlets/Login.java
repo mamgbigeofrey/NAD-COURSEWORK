@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 
             if (user != null) {
                 request.getSession().setAttribute("auth", user);
-                out.print("user logged in");
+//                out.print("user logged in");
 
                 response.sendRedirect("index.jsp");
             } else {

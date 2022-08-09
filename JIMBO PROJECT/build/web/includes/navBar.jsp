@@ -1,7 +1,8 @@
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
-    request.setAttribute("person", auth);
+//    request.setAttribute("person", auth);
+String name = auth.getName();
 }
 
 %>  
@@ -14,7 +15,7 @@ if (auth != null) {
     <div id="header1">
         <span id="header1-left">
                     <%if(auth != null){%>
-                       <a href="menu.jsp"><i class="fa-solid fa-bars"></i></a>
+                    <i class="fa-solid sidebarBtn fa-bars"></i>
                        <%}
 %>
                    <a href="index.jsp"><h2> JIMBO</h2></a>
@@ -47,8 +48,8 @@ if (auth != null) {
         </div>
         <div id="header2-left">
             <a href="#">ABOUT</a>
-                      	 <a class="nav-link" href="cart.jsp">cart<span class="badge badge-danger">${cart_list.size()}</span> </a>
-                         <!--<i class="fa-solid fa-cart-shopping fa-2xl"></i>-->
+                      	 <a class="nav-link" href="cart.jsp"><i class="fa-solid fa-cart-shopping fa-2xl"></i><span class="badge badge-success" style="red">${cart_list.size()}</span> </a>
+                        
 
         </div>
     </div>

@@ -25,6 +25,7 @@ public class AddToCartServlet extends HttpServlet {
 //        	out.print("add to cart servlet");
 
             ArrayList<Cart> cartList = new ArrayList<>();
+            
             int id = Integer.parseInt(request.getParameter("id")); //get the product id parsed from the index page
             Cart cm = new Cart();
             cm.setId(id);

@@ -24,13 +24,9 @@ public class UserDao {
             query ="select * from users where email=?";
             pst = this.con.prepareStatement(query);
             rs = pst.executeQuery();
-            while(rs.next()){
-                if(rs.getString(email).equals(email)){
-                    result = true;
-                    break;
-                    
-                }
-            }
+           if(rs.next()){
+               return true;
+           }
             
         }catch (SQLException e) {
             System.out.print(e.getMessage());
@@ -40,30 +36,39 @@ public class UserDao {
         
     }
 
-    public boolean userSignUp(String email, String name,String address,String gender, String passwd) {
+    public boolean userSignUp(String firstName, String lastName, String email,String address,String gender,String passwd,int age) {
         User user = null;
-          boolean result = false;
+        boolean result = false;
        
         try {
-           
 
             user = new User();
             user.setEmail(email);
-            user.setName(name);
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
             user.setAddress(address);
             user.setGender(gender);
             user.setPassword(passwd);
+            user.setAge(age);
 
-            query = "insert into users (name,email,address,gender,password) values (?,?,?,?,?)";
+            query = "insert into users (firstName,lastName,email,address,gender,password,age) values (?,?,?,?,?,?,?)";
             pst = this.con.prepareStatement(query);
-            pst.setString(1,name);
-            pst.setString(2,email);
-            pst.setString(3,address);
-            pst.setString(4,gender);
-            pst.setString(5,passwd);
+            pst.setString(1,firstName);
+            pst.setString(2,lastName);
+            pst.setString(3,email);
+            pst.setString(4,address);
+            pst.setString(5,gender);
+            pst.setString(6,passwd);
+            pst.setInt(7,age);
+            if(pst.executeUpdate()== 1){
+                 result = true;
+                
+            }else{
+                return false;
+            }
             
-            pst.executeUpdate();
-            result = true;
+            
+           
             
         } catch (SQLException e) {
             System.out.print(e.getMessage());
@@ -83,10 +88,14 @@ public class UserDao {
             rs = pst.executeQuery();
             if (rs.next()) {
                 user = new User();
-                user.setId(rs.getInt("id"));
-                user.setName(rs.getString("name"));
+                user.setId(rs.getInt("userID"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
                 user.setEmail(rs.getString("email"));
-            }
+                user.setGender(rs.getString("gender"));
+                user.setAge(rs.getInt("age"));
+                user.setAddress(rs.getString("address"));
+             }
         } catch (SQLException e) {
             System.out.print(e.getMessage());
         }
