@@ -47,7 +47,7 @@ String name = auth.getName();
             <a class="category-list" href="#shirts-section">SHIRTS</a>
         </div>
         <div id="header2-left">
-            <a href="#">ABOUT</a>
+            <a href="./about.jsp" target="_blank">ABOUT</a>
                       	 <a class="nav-link" href="cart.jsp"><i class="fa-solid fa-cart-shopping fa-2xl"></i><span class="badge badge-success" style="red">${cart_list.size()}</span> </a>
                         
 
