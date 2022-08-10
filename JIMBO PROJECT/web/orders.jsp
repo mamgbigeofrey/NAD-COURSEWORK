@@ -28,7 +28,7 @@
 <html>
 <head>
 <%@include file="/includes/head.jsp"%>
-<title>E-Commerce Cart</title>
+<title>Your orders | Jimbo</title>
 </head>
 <body>
     <nav>

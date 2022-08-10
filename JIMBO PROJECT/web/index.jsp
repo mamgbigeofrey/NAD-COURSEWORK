@@ -32,6 +32,9 @@
                 background-color:#EBA239;
 
             }
+            .product-card button:hover{
+                background: black !important;
+            }
 
 
         </style>

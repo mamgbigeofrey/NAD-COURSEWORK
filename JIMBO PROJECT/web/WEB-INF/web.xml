@@ -162,17 +162,17 @@
         <servlet-name>StaffRegister</servlet-name>
         <url-pattern>/StaffRegister</url-pattern>
     </servlet-mapping>-->
-    <servlet>
+<!--    <servlet>
         <servlet-name>Admin_authentication</servlet-name>
         <servlet-class>Admin_authentication</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Admin_authentication</servlet-name>
         <url-pattern>/Admin_authentication</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <session-config>
         <session-timeout>
-            30
+            60
         </session-timeout>
     </session-config>
 </web-app>

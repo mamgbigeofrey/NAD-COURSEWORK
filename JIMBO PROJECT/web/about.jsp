@@ -55,7 +55,7 @@
             </div>
             <div>
                 <img src="images/th4.jpg">
-                <p>We deal in Jewelleries</p>
+                <p>We deal in Jewelry</p>
             </div>
             
             
@@ -72,13 +72,13 @@
                 sustainable impact on our communities and ecosystems: we’re a tech-first, responsible company. </p>
             <p>Jimbo was founded under Lt Engineer Jimbo the then CEO of google 2002 to offer the best solutions to our communities 
             while making sure they aren't stranded and is forever under his legacy.</p>
-        <p>Jimbo deals in four product lines thats clothes in the category of shirts, shoes, jackets and jewellery. We are grateful to 
-        our customers for their continious support towards the business and you are the reason why we operate</p>
+        <p>Jimbo deals in four categories of accessories, shirts, shoes, jackets and jewelry. We are grateful to 
+        our customers for their continuous support towards the business and you are the reason why we operate</p>
         <p>To do business with us, you can either use this online shop or you can even come to our offices and stores at <b>Kampala Road E-Towers building shop number CD432
             and get yourself some goodies today.</b> </p>
             <p>You can contact us on this using the company email (<a href="#">info.jimbo@workmail.com</a> 
-                or better still send us a whatsapp message using <a href="#">0778967012</a></p>
-            <h4>Thanks for standing with us. Please visit us again!!</h4>
+                REACH US ON WHATSAPP <a href="#">0778967012</a></p>
+            <h4>We enjoy serving you. Please visit us again!!</h4>
         
         </div>
         </div>

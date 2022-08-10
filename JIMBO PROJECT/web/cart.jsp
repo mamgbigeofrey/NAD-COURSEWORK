@@ -36,12 +36,21 @@ if (cart_list != null) {
                 box-shadow: none;
                 font-size: 25px;
             }
-
+            body{
+                height:9000px !important;
+            }
 
             table{
 
                 width:80%;
                 margin: auto auto;
+            }
+            footer{
+               
+                position:fixed;
+                bottom:0;
+/*                left:0;
+                right:0;*/
             }
 
 
@@ -118,7 +127,7 @@ if (cart_list != null) {
                 </tbody>
             </table>
         </div>
-
-        <%@include file="includes/footer.jsp"%>
+             
+        
     </body>
 </html>
