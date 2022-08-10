@@ -266,7 +266,7 @@
 
         <br>
         <br>
-        <!--</div>-->
+        <!--</div>
         <footer>
             <div id="nad-project">
                 <small>NAD PROJECT</small>
@@ -275,7 +275,8 @@
 
 
 
-        </footer>
+        </footer>-->
+        <%@include file="includes/footer.jsp" %>
         <script src="js/style.js"></script>
         <script src="https://kit.fontawesome.com/b53e7ecf2c.js" crossorigin="anonymous"></script>
 

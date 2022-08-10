@@ -70,6 +70,23 @@ public class ProductDao {
         }
         return book;
     }
+    void updateProductQuantity(int pID) throws SQLException{
+        query = "select * from products where productID =?";
+        pst = this.con.prepareStatement(query);
+        pst.setInt(1,pID);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            int dbQuantity = rs.getInt("quantity");
+            if(dbQuantity>0){
+                String query2 ="update products set quantity=? where productID=?";
+                PreparedStatement pst2 =this.con.prepareStatement(query2);
+//                pst2.setInt(1,(dbQuantity -))
+                
+                
+            }
+         }
+    
+}
 
     public Product getSingleProduct(int id) {
         Product row = null;

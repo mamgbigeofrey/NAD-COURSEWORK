@@ -11,6 +11,7 @@
     <section class="accout_creation">
       <div class="account_details_container">
                     <h3 style="color:red; margin: auto auto; width:50%; align-items: center">${passwd3rror}</h3>
+                        <h3 style="color:red; margin: auto auto; width:50%; align-items: center">${userExists}</h3>
         <form id="my_form" class="form-spacing" method="post" action="sign-up">
           <h4>Create New Account</h4>
           <hr>
@@ -57,10 +58,11 @@
         </form>
       </div>
 
-      <div class="redirect_to_sign_in">
+     <div class="redirect_to_sign_in">
    
         <a href="user_login.jsp" > I already have an existing account</a>
       </div>
+
 
 
     </section>

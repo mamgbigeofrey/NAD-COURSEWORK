@@ -16,6 +16,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,9 +43,14 @@ public class SignUpServlet extends HttpServlet {
             String address = request.getParameter("address");
             String gender = request.getParameter("gender");
             
+            Connection conn = DbCon.getConnection();
+            String query = "select * from users where email=?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1,signupEmail);
 
             if(!(passwd1.equals(passwd2))) {
                 request.setAttribute("passwd3rror" , "Your passwords do not match");
+
                     RequestDispatcher requestdispatcher = request.getRequestDispatcher("sign-up.jsp");
                     requestdispatcher.include(request, response);
                 
@@ -50,23 +58,27 @@ public class SignUpServlet extends HttpServlet {
                 
             } else{
 
-                UserDao dao = new UserDao(DbCon.getConnection());
+             UserDao dao = new UserDao(DbCon.getConnection());
                 if (dao.userExists(signupEmail)) {
-                    response.sendRedirect("user_login.jsp");
+                     request.setAttribute("userExists", "Your email is associated with an existing account!");
+                    RequestDispatcher requestdispatcher = request.getRequestDispatcher("sign-up.jsp");
+                    requestdispatcher.include(request, response); 
+                    
                 } else {
                     
                     dao.userSignUp(firstName, lastName, signupEmail, address, gender, passwd2, age);
-                    request.setAttribute("signUpSucess", "account was created sucessfully, you can log in!");
+                    request.setAttribute("signUpSucess", "Account was created sucessfully, you can log in!");
                     RequestDispatcher requestdispatcher = request.getRequestDispatcher("user_login.jsp");
                     requestdispatcher.include(request, response); 
                      
                 }
             
 
+                    
         } }
         catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    } 
 
 }

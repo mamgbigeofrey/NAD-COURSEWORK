@@ -13,7 +13,9 @@
 
    
     <section class="account_login">
+       
       <div class="account_login_container">
+       
   
         <form class="form-spacing" method="POST" action="login-user">
            <h4>User Log In</h4>
@@ -32,7 +34,7 @@
 
           <button type="submit">Sign In</button>
           <h2 style="color:green;">${signUpSucess}</h2>
-            <h2 style="color:red;">${password3rror}</h2>
+            
         </form>
       </div>
                
