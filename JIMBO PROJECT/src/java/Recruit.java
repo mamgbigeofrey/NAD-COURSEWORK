@@ -1,5 +1,3 @@
-package JAVAFILES;
-
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,6 +8,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import java.sql.*;
+
+import java.sql.Statement;
 
 public class Recruit extends HttpServlet {
 

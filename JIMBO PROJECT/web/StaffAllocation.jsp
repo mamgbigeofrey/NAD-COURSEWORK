@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
-    <%@page import="JAVAFILES.DBConnection" %>
+    <%@page import="DBConnection.*" %>
         <%@page import="java.sql.*" %>
             <!DOCTYPE html>
             <html>
@@ -33,7 +33,7 @@
                         width: 85%;
                         height: 90%;
                         border: 1;
-                        margin auto auto;
+                        margin: auto auto;
                         color: rgb(0, 64, 128);
                         border-radius: 5px;
                         background-color: white;
@@ -44,7 +44,7 @@
                     .col {
                         margin: 10px;
                         text-align: center;
-                        border
+                        
                     }
 
                     .choices {

@@ -51,6 +51,8 @@ public class CheckOutServlet extends HttpServlet {
 					
 					OrderDao oDao = new OrderDao(DbCon.getConnection());
 					boolean result = oDao.insertOrder(order);
+                                        ProductDao pdao = new ProductDao(DbCon.getConnection());
+                                        pdao.updateProductQuantity(c.getId(),c.getQuantity());
 					if(!result) break;
 				}
 				cart_list.clear();
