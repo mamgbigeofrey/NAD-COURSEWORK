@@ -169,7 +169,6 @@
     <servlet-mapping>
         <servlet-name>Admin_authentication</servlet-name>
         <url-pattern>/Admin_authentication</url-pattern>
-
     </servlet-mapping>
        <!--<servlet>-->
 <!--    <description></description>
@@ -239,8 +238,7 @@
   <servlet-mapping>
     <servlet-name>ButtonReallocate</servlet-name>
     <url-pattern>/ButtonReallocate</url-pattern>
-  </servlet-mapping>-->
- 
+  </servlet-mapping>
     <session-config>
         <session-timeout>
             60

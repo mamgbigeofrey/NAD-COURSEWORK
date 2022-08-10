@@ -33,10 +33,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Reports Page</title>
         <link rel="stylesheet" href="css/grid.css"/>
-        <link rel="stylesheet" href="css/">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
     </head>
     <body>
-        <h1>REPORTS</h1>
         <%
             try {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -67,6 +70,7 @@
         %>
         <div
         <div class="main">
+            <h3>Graphical Analytics</h3>
         <div class="charts">
            
             <div class="chart">
@@ -85,7 +89,9 @@
         
         
         
-         <h1>USER DETAILS</h1>
+         
+         <div class="users">
+             <h3>Company customer details</h3>
         
         <%
             
@@ -114,7 +120,7 @@
                              }
             out.println("</table>");
              
-             ResultSet Date=st.executeQuery("Select count(*) from user where(timeCreated between '2022-12-09' AND '2022-12-22')");
+             ResultSet Date=st.executeQuery("Select count(*) from users where(timeCreated between '2022-o8-08' AND '2022-08-22')");
           
              Date.next();
              out.println(Date.getInt("count(*)")+ " is " + "the number of users from 2022-12-09 to 2022-12-22");
@@ -125,12 +131,14 @@
                 out.println("there is an error"+e.getMessage());
            }
             %>
+         </div>
             
             
             
             
-            <h1>PRODUCTS TABLE</h1>
-        
+            
+            <div class="products">
+                <h3> Company Product details and Stock</h3>
         <%
             
             Class.forName("com.mysql.jdbc.Driver"); 
@@ -161,12 +169,12 @@
                              }
             out.println("</table>");
              
-             ResultSet ret=st.executeQuery("Select count(*) from products where category='jewellery'");
-            ;
-          
-             ret.next();
-            
-             out.println(ret.getInt("count(*)")+ " is " + "the number of jewellery products produced");
+//             ResultSet ret=st.executeQuery("Select count(*) from products where category='jewellery'");
+//            
+//          
+//             ret.next();
+//            
+//             out.println(ret.getInt("count(*)")+ " is " + "the number of jewellery products produced");
               
             
             
@@ -176,6 +184,7 @@
                 out.println("there is an error"+e.getMessage());
             }
             %>
+            </div>
 
         <script src="./js/chart.min.js"></script>
         <script>
@@ -204,13 +213,13 @@ var myChart = new Chart(ctx, {
         y:{
             title:{
                 display:true,
-                text:"ylabel"
+                text:"PRICE"
             }
         },
         x:{
             title:{
                 display:true,
-                text:"xLABEL"
+                text:"PRODUCT"
             }
         }
         }
@@ -254,6 +263,7 @@ var myChart2 = new Chart(ctx2, {
         }
 });
 </script>
+<%@include file="includes/footer.jsp" %>
 
     </body>
 </html>
