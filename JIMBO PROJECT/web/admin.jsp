@@ -58,19 +58,19 @@
         <h4>Product Management</h4>
         
         <li>
-          <a href="products.jsp">
+          <a href="addProducts.jsp">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Add Product</span>
           </a>
         </li>
         <li>
-          <a href="users.jsp">
+          <a href="addingProcess.jsp">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">View Product</span>
           </a>
         </li>
         <li>
-          <a href="charts.jsp">
+          <a href="editProduct.jsp">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">Update Product</span>
           </a>
@@ -106,27 +106,11 @@
         <li>
           <a href="reports.jsp">
             <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Recruit Staff</span>
+            <span class="links_name">Analytics</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Allocate staff</span>
-          </a>
-        </li>
-        <li>
-          <a href="reports.jsp">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Reallocate Staff</span>
-          </a>
-        </li>
-        <li>
-          <a href="reports.jsp">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Staff Details</span>
-          </a>
-        </li>
+ 
+        
         <li class="log_out">
             <a href="admin-logout">
             <i class='bx bx-log-out'></i>
@@ -227,7 +211,23 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Staff</div>
-            <div class="number">11,086</div>
+            <div class="number">
+                <%
+                    ResultSet rs4=st.executeQuery("select count(*) from staff where gender='MALE'");
+                    rs4.next();
+                    out.print(rs4.getInt("count(*)")+ "   Males\n");
+                    %>
+                    <br>
+                    <%
+                    
+                     ResultSet rs5=st.executeQuery("select count(*) from staff where gender='FEMALE'");
+                    rs5.next();
+                    out.println(rs5.getInt("count(*)")+ " Females");
+                     //out.println(rs1.getInt("count(*)")+ "    Females");
+                %>
+
+                
+            </div>
             <div class="indicator">
               <i class='bx bx-down-arrow-alt down'></i>
               <span class="text">Down From Today</span>

@@ -30,7 +30,7 @@ public class Recruit extends HttpServlet {
 				DBConnection conn = new DBConnection();
 				st = conn.getStatement();
 				
-				st.executeUpdate("insert into Staff (firstName, lastName, Age, Gender, address, email, productLineID) values('"+f+"', '"+l+"', '"+age+"',  '"+g+"', '"+addr+"' '"+email+"' )");
+				st.executeUpdate("insert into Staff (firstName, lastName, Age, Gender, address, email) values('"+f+"', '"+l+"', '"+age+"',  '"+g+"', '"+addr+"' '"+email+"' )");
 				response.sendRedirect("staffRecruitment.jsp");
 			} catch (Exception e) {
 				out.println(e.getMessage());

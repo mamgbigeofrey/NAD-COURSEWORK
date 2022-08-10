@@ -7,7 +7,7 @@
 
             <head>
                 <meta charset="ISO-8859-1">
-                <link rel="stylesheet" href="bootstrap.css">
+                <link rel="stylesheet" href="css/bootstrap.css">
                 <link href="css/styles.css" type="text/css" rel="stylesheet" />
                 <link rel="stylesheets" href="css/bootstrap.css">
                 <title>JIMBO | ADMIN | ALLOCATE</title>
