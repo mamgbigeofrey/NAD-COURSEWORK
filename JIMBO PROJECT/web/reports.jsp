@@ -209,13 +209,13 @@ var myChart = new Chart(ctx, {
         y:{
             title:{
                 display:true,
-                text:"ylabel"
+                text:"PRICE"
             }
         },
         x:{
             title:{
                 display:true,
-                text:"xLABEL"
+                text:"PRODUCT"
             }
         }
         }
