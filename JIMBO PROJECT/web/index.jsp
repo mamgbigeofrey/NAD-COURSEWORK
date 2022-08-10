@@ -118,10 +118,11 @@
                             <span class="product-catagory">Category: <%=p.getCategory()%></span>
                             <h4><a href=""><%=p.getName() %></a></h4>
                             <div class="product-bottom-details">
-                                <div class="product-price"><small>Price: $<%=p.getPrice() %></small></div>
-                                <div class="product-links">
-                                    <a  href="#"><i class="fa fa-heart"></i></a>
-                                    <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+                                <div class="product-links" style="align-items: center">
+                                                                         <a  href="#"><i class="fa fa-heart"></i></a>
+
+
+                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
                                     <a href="add-to-cart?id=<%=p.getId()%>" class="btn btn-dark">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
@@ -278,16 +279,28 @@
         <script src="js/style.js"></script>
         <script src="https://kit.fontawesome.com/b53e7ecf2c.js" crossorigin="anonymous"></script>
 
-        <script>
-//            var heartShirts = document.getElementsByClassName("heart-shirts");
-//            heartShirts.addEventListener('click',Toggle());
-//            function Toggle(){
-//                heartShirts.style.color='red';
-//            }
-//      
-
-
-        </script>
+ 
+  <script>
+    var likeBtn = document.querySelector('.likeBtn');
+    var unLikeBtn = document.querySelector('.unLikeBtn');
+    likeBtn.addEventListener('click',Toggle());
+    function Toggle(){
+        if(likeBtn.classList.contains('likeBtn-active')){
+            likeBtn.classList.remove('likeBtn-active');
+            likeBtn.classList.add('likeBtn-inactive');
+            unLikeBtn.classList.remove('unLikeBtn-inactive');
+            unLikeBtn.classList.add('unLikeBtn-active');
+        }
+        else{
+            likeBtn.classList.remove('likeBtn-inactive');
+            likeBtn.classList.add('likeBtn-active');
+            unLikeBtn.classList.remove('unLikeBtn-active');
+            unLikeBtn.classList.add('unLikeBtn-inactive');
+        }
+        
+    }
+   </script>
+      
         <script>
             let sidebar = document.querySelector(".sidebar");
             let sidebarBtn = document.querySelector(".sidebarBtn");

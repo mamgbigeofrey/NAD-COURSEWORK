@@ -41,16 +41,14 @@ public class SignUpServlet extends HttpServlet {
             String gender = request.getParameter("gender");
             
 
-            while(!(passwd1.equals(passwd2))) {
-                request.setAttribute("password3rror" , "Your passwords do not match");
+            if(!(passwd1.equals(passwd2))) {
+                request.setAttribute("passwd3rror" , "Your passwords do not match");
                     RequestDispatcher requestdispatcher = request.getRequestDispatcher("sign-up.jsp");
                     requestdispatcher.include(request, response);
-              
                 
+               
                 
-                break;
-                
-            }
+            } else{
 
                 UserDao dao = new UserDao(DbCon.getConnection());
                 if (dao.userExists(signupEmail)) {
@@ -60,13 +58,12 @@ public class SignUpServlet extends HttpServlet {
                     dao.userSignUp(firstName, lastName, signupEmail, address, gender, passwd2, age);
                     request.setAttribute("signUpSucess", "account was created sucessfully, you can log in!");
                     RequestDispatcher requestdispatcher = request.getRequestDispatcher("user_login.jsp");
-                    requestdispatcher.include(request, response);
-                    
+                    requestdispatcher.include(request, response); 
                      
                 }
             
 
-        } 
+        } }
         catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

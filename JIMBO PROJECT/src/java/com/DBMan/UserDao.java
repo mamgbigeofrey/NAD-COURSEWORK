@@ -23,6 +23,7 @@ public class UserDao {
             user.setEmail(email);
             query ="select * from users where email=?";
             pst = this.con.prepareStatement(query);
+            pst.setString(1, email);
             rs = pst.executeQuery();
            if(rs.next()){
                return true;
