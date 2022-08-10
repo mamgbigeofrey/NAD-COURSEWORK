@@ -9,7 +9,7 @@
     String price = request.getParameter("price");
    
     //Querying to the database
-    int updateProduct = dbConnection.insertUpdateFromSqlQuery("update product set productName='" + pname + "', quantityInStock='" + quan + "', price='" + price + "' where productID='" + id + "'");
+    int updateProduct = dbConnection.insertUpdateFromSqlQuery("update products set productName='" + pname + "', quantityInStock='" + quan + "', price='" + price + "' where productID='" + id + "'");
     if (updateProduct > 0) {
         response.sendRedirect("viewProducts.jsp");
     } else {

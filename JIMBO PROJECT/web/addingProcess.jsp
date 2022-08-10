@@ -22,7 +22,7 @@
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jimboshopper", "root", "");
 		Statement stmt = con.createStatement(); 
-		String insert = "insert into products (productId, productName, category, price, quantityInStock) values('" + id + "', ' " + name + "', '" + cat + "','" + pr + "','" + quan + "')";
+		String insert = "insert into products ( productName, category, price, quantityInStock) values( ' " + name + "', '" + cat + "','" + pr + "','" + quan + "')";
 			
 		stmt.executeUpdate(insert);
 		response.sendRedirect("admin.jsp");

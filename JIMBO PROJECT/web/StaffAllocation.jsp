@@ -10,6 +10,8 @@
                 <link rel="stylesheet" href="css/bootstrap.css">
                 <link href="css/styles.css" type="text/css" rel="stylesheet" />
                 <link rel="stylesheets" href="css/bootstrap.css">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
                 <title>JIMBO | ADMIN | ALLOCATE</title>
                 <style>
                     body {
@@ -175,6 +177,7 @@
                         }
                     } 
                 </script>
+                <%@include file="includes/footer.jsp" %>
             </body>
 
             </html>

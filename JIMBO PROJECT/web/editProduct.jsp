@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
-<%@page import="com.nad.dbConnection"%>
+<%@page import="com.dbConnection.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,9 +26,7 @@
         %>
         <div class="container">
             <form role="form" action="editing.jsp" method="post">
-                <div class="form-floating mb-3">
-                    <label>Product Id</label> <input class="form-control" type="text" name="productId" value="<%=update.getString("productId")%>" readonly />
-                </div>
+ 
                 <div class="form-floating mb-3">
                     <label>Product Name</label> <input class="form-control" type="text" name="productName" value="<%=update.getString("productName")%>" />
                 </div>
@@ -42,6 +40,8 @@
                 <button type="submit">Update Product</button>
             </form>
         </div>
+                <%
+                    }%>
         
     </body>
 </html>

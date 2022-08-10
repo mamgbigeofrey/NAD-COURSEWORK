@@ -34,6 +34,10 @@
         <title>Reports Page</title>
         <link rel="stylesheet" href="css/grid.css"/>
         <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
     </head>
     <body>
         <%
@@ -259,6 +263,7 @@ var myChart2 = new Chart(ctx2, {
         }
 });
 </script>
+<%@include file="includes/footer.jsp" %>
 
     </body>
 </html>

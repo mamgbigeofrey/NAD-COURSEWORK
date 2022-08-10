@@ -64,7 +64,7 @@
           </a>
         </li>
         <li>
-          <a href="addingProcess.jsp">
+          <a href="viewProducts.jsp">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">View Product</span>
           </a>
@@ -241,52 +241,37 @@
         <div class="recent-sales box">
           <div class="title">Recent Sales</div>
           <div class="sales-details">
-            <ul class="details">
-              <li class="topic">Date</li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-            </ul>
-            <ul class="details">
-            <li class="topic">Customer</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">Sales</li>
-            <li><a href="#">Delivered</a></li>
-            <li><a href="#">Pending</a></li>
-            <li><a href="#">Returned</a></li>
-            <li><a href="#">Delivered</a></li>
-            <li><a href="#">Pending</a></li>
-            <li><a href="#">Returned</a></li>
-            <li><a href="#">Delivered</a></li>
-             <li><a href="#">Pending</a></li>
-            <li><a href="#">Delivered</a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic">Total</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             <li><a href="#">$23.53</a></li>
-             <li><a href="#">$46.52</a></li>
-          </ul>
+              <%
+                    ResultSet rs6=st.executeQuery("select * from orders");
+                    rs6.next();
+                    %>
+        
+    
+                    <table>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>UserID</th>
+                            <th>ProductID</th>
+                            <th>Order Quantity</th>
+                            <th>Order Date</th>
+                          </tr>
+                          <%
+                              while(rs6.next()){
+                              %>
+                              <tr>
+                                <td><%out.print(rs6.getString("orderID"));%></td>
+                                <td><%out.print(rs6.getString("userID"));%></td>
+                                <td><%out.print(rs6.getString("productID"));%></td>
+                                <td><%out.print(rs6.getString("orderQuantity"));%></td>
+                                <td><%out.print(rs6.getString("orderDate"));%></td>
+                              </tr>
+                              <%
+                              }
+                          %>
+                        
+                    </table>
+
+            
           </div>
           <div class="button">
               <a href="#">See All</a>
