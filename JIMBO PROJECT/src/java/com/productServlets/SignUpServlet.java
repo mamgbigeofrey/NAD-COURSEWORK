@@ -62,12 +62,12 @@ public class SignUpServlet extends HttpServlet {
                     requestdispatcher.include(request, response);
 
                 } else {
-                    Boolean rs = dao.userSignUp(firstName, lastName, signupEmail, address, gender, passwd2, age);
-                    if (rs) {
+                   dao.userSignUp(firstName, lastName, signupEmail, address, gender, passwd2, age);
+                     
                         request.setAttribute("signUpSucess", "Account was created sucessfully, you can log in!");
                         RequestDispatcher requestdispatcher = request.getRequestDispatcher("user_login.jsp");
                         requestdispatcher.include(request, response);
-                    }
+                    
 
                 }
 
