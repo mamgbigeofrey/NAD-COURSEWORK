@@ -54,7 +54,7 @@
              Confirm Password * 
             <input type="password" name="confirm-password" placeholder="Re-enter password" required>
           </div>
-          <button type="submit">SIGN UP</button>
+          <button type="submit" style="background-color:#5cb874">SIGN UP</button>
         </form>
       </div>
 
