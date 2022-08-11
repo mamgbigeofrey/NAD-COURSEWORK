@@ -82,8 +82,6 @@ public class OrderNowServlet extends HttpServlet {
             // TODO Auto-generated catch block
             	}
     
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+	 
 
 }

@@ -40,6 +40,7 @@ public class UserDao {
     public boolean userSignUp(String firstName, String lastName, String email,String address,String gender,String passwd,int age) {
 //        User user = null;
         boolean result = false;
+        int j;
        
         try {
  
@@ -53,8 +54,8 @@ public class UserDao {
             pst.setString(5,address);
             pst.setString(6,passwd);
             pst.setString(7,gender);
-            pst.executeUpdate();
-if(pst.executeUpdate()==1){
+            j= pst.executeUpdate();
+if(j==1){
     result = true;
     
 }            
