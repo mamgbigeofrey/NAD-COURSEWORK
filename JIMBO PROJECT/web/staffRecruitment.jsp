@@ -82,9 +82,7 @@
 Statement t=null;
 DBConnection c= new DBConnection();
 t=c.getStatement();
-
-
-%>
+>
 
 
 
