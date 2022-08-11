@@ -48,6 +48,10 @@
                         text-align: center;
                         
                     }
+                    .form-check{
+                        width:50%;
+                        margin-left:0; 
+                    }
 
                     .choices {
                         width: 60%;
@@ -134,7 +138,7 @@
 
                               <% } %>
 
-                                  <div class="row choices">
+                                  <div class="row choices" style="margin:auto auto; align-items: center">
                                       <div class="form-check">
                                           <input class="form-check-input" type="radio" name="choice" value="1">                       
                                           <label class="">SHOES</label>
