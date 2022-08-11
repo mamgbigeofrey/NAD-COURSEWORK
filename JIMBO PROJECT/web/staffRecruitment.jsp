@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-      <%@page import="DBConnection" %>
+      <%--<%@page import="DBConnection" %>--%>
    <%@page import="java.sql.*" %>
 <%--<%@ include file="DBConnection.java" flush="true" %>--%>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
 
 <h2>STAFF RECRUITMENT FORM</h2>
 
-<form class="form m-10" method ="post" action="Recruit" style="width:400px">
+<form class="form m-10" method ="post" action="recruit" style="width:400px">
 		<div class="form-floating mb-3">
 		<input class="form-control" type="text" name="fName">
 		<label>First Name:</label>
@@ -77,14 +77,6 @@
 		</div>
 
 </form>
-
-<%
-Statement t=null;
-DBConnection c= new DBConnection();
-t=c.getStatement();
-
-
-%>
 
 
 
