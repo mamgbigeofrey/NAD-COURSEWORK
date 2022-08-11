@@ -45,13 +45,13 @@ public class OrderNowServlet extends HttpServlet {
 
             User auth = (User) request.getSession().getAttribute("auth");
             if (auth != null) {
-                String productId = request.getParameter("id");
+         int productId = Integer.parseInt(request.getParameter("id"));
                 int productQuantity = Integer.parseInt(request.getParameter("quantity"));
                 if (productQuantity <= 0) {
                 	productQuantity = 1;
                 }
                 Order orderModel = new Order();
-                orderModel.setId(Integer.parseInt(productId));
+                orderModel.setId(productId);
                 orderModel.setUid(auth.getId());
                 orderModel.setQunatity(productQuantity);
                 orderModel.setDate(formatter.format(date));
@@ -62,16 +62,14 @@ public class OrderNowServlet extends HttpServlet {
                     ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
                     if (cart_list != null) {
                         for (Cart c : cart_list) {
-                            if (c.getId() == Integer.parseInt(productId)) {
+                            if (c.getId() == productId) {
                                 cart_list.remove(cart_list.indexOf(c));
                                 break;
                             }
                         }
                     }
                     response.sendRedirect("orders.jsp");
-                } else {
-                    out.println("order failed");
-                }
+                }  
             } else {
                 response.sendRedirect("user_login.jsp");
             }

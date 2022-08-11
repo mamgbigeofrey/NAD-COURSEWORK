@@ -15,12 +15,12 @@ public class UserDao {
         this.con = con;
     }
     public boolean userExists(String email){
-        User user = null;
+//        User user = null;
          boolean result = false;
         try{
            
-            user = new User();
-            user.setEmail(email);
+//            user = new User();
+//            user.setEmail(email);
             query ="select * from users where email=?";
             pst = this.con.prepareStatement(query);
             pst.setString(1, email);
@@ -38,36 +38,26 @@ public class UserDao {
     }
 
     public boolean userSignUp(String firstName, String lastName, String email,String address,String gender,String passwd,int age) {
-        User user = null;
+//        User user = null;
         boolean result = false;
        
         try {
+ 
 
-            user = new User();
-            user.setEmail(email);
-            user.setFirstName(firstName);
-            user.setLastName(lastName);
-            user.setAddress(address);
-            user.setGender(gender);
-            user.setPassword(passwd);
-            user.setAge(age);
-
-            query = "insert into users (firstName,lastName,email,address,gender,password,age) values (?,?,?,?,?,?,?)";
+            query = "insert into users (firstName,lastName,email,age,address,password,gender) values (?,?,?,?,?,?,?)";
             pst = this.con.prepareStatement(query);
             pst.setString(1,firstName);
             pst.setString(2,lastName);
             pst.setString(3,email);
-            pst.setString(4,address);
-            pst.setString(5,gender);
+            pst.setInt(4,age);
+            pst.setString(5,address);
             pst.setString(6,passwd);
-            pst.setInt(7,age);
-            if(pst.executeUpdate()== 1){
-                 result = true;
-                
-            }else{
-                return false;
-            }
-            
+            pst.setString(7,gender);
+            pst.executeUpdate();
+if(pst.executeUpdate()==1){
+    result = true;
+    
+}            
             
            
             

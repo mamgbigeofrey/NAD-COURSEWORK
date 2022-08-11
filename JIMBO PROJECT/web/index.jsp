@@ -76,7 +76,7 @@
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Prev</span>
+                    <!--<span class="sr-only">Prev</span>-->
                 </a>
 
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">

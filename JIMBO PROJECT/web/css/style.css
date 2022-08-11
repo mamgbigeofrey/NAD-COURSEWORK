@@ -217,7 +217,7 @@ a
 .contentCard{
     /*box-sizing: border-box;*/
     text-align: center;
-    border-radius:20px 20px 50% 50%;
+    border-radius:20px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
     transition: .5s;
     background: #f2f2f2;
