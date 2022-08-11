@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
-    <%@page import="DBConnection" %>
+   
         <%@page import="java.sql.*" %>
             <!DOCTYPE html>
             <html>
@@ -85,15 +85,18 @@
 
             <body>
 
-                <form class="form mx-5 my-5" method="post" action="Allocate">
+                <form class="form mx-5 my-5" method="post" action="allocate">
                     <h3 class="message">${message}</h3>
                     <div class="container">
 
 
 
                         <header style="text-align:center"><b>STAFF ALOCATION</b></header>
-                        <% Statement t=null; DBConnection c=new DBConnection();
-                        t=c.getStatement(); 
+                        <% //Statement t=null; DBConnection c=new DBConnection();
+                         Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jimboshopper", "root", "");
+		Statement st = con.createStatement();
+                        //st=con.getStatement(); 
                         int Total_staff=0;
                         int allocated=0;
                         %>
@@ -108,13 +111,13 @@
                           <!--<th></th>  -->
                       </div>
 
-                      <% ResultSet s=t.executeQuery("SELECT COUNT(staffID) AS A from staff");
+                      <% ResultSet s=st.executeQuery("SELECT COUNT(staffID) AS A from staff");
                       while(s.next()) {
                           Total_staff=s.getInt("A");
                           allocated=Total_staff/4;
                           }%>
                           <input type="hidden" name="total" value="<%=Total_staff %>">
-                          <% ResultSet rs=t.executeQuery("SELECT * FROM staff WHERE status='PENDING' ");
+                          <% ResultSet rs=st.executeQuery("SELECT * FROM staff WHERE status='PENDING' ");
 
                                    while (rs.next()){ %>
 
