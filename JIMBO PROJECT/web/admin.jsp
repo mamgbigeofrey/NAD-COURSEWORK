@@ -241,6 +241,33 @@
           </div>
           <i class='bx bxs-cart-download cart four' ></i>
         </div>
+                
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Staff Status</div>
+            <div class="number">
+                <%
+                    ResultSet rss=st.executeQuery("select count(*) from staff where status='ACTIVE'");
+                    rss.next();
+                    out.print(rss.getInt("count(*)")+ "   Allocated\n");
+                    %>
+                    <br>
+                    <%
+                    
+                     ResultSet rss1=st.executeQuery("select count(*) from staff where status='PENDING'");
+                    rss1.next();
+                    out.println(rss1.getInt("count(*)")+ " Not Allocated");
+                %>
+
+                
+            </div>
+            <div class="indicator">
+              <i class='bx bx-down-arrow-alt down'></i>
+              <span class="text">Down From Today</span>
+            </div>
+          </div>
+          <i class='bx bxs-cart-download cart four' ></i>
+        </div>
       </div>
 
       <div class="sales-boxes">
