@@ -69,7 +69,9 @@ public class OrderNowServlet extends HttpServlet {
                         }
                     }
                     response.sendRedirect("orders.jsp");
-                }  
+                }  else {
+                    out.println("order failed");
+                }
             } else {
                 response.sendRedirect("user_login.jsp");
             }
