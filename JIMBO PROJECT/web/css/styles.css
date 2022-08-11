@@ -1,16 +1,23 @@
 @charset "ISO-8859-1";
-
+body{
+    width: 100vw;
+    margin: 0;
+}
 .btn{
 	color:black;
 }
 
 table{
 	border-radius:3px;
+        margin: 20px auto auto;
 }
 form{
-	padding-left:100px;
+	padding:50px;
 	background-color:rgb(0, 64, 128);
+        margin:auto auto;
+        
 }
 thead{
 	font-weight:500px;
 }
+

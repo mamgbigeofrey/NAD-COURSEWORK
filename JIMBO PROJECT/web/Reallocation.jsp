@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-  <%@page import="DBConnection" %>
+ 
    <%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
@@ -11,18 +11,19 @@
 <link href="css/styles.css"  type="text/css" rel="stylesheet"   />
 <title>JIMBO | ADMIN | ALL STAFF</title>
 </head>
-<body>
+<body style="margin-top: 20px">
 
 <%
-Statement t=null;
-DBConnection c= new DBConnection();
-t=c.getStatement();
+      Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jimboshopper", "root", "");
+		Statement st = con.createStatement();
 
 
 %>
+    <h3 style="margin: auto auto; width: 40%; text-align: center;"><b>RECRUITMENT STATISTICS</b></h3>
 
-<b>RECRUITMENT STATISTICS</b>
 <table class="table table-striped table-bordered table-secondary " style="width:100px" >
+
 <caption>Recruitment Statistics</caption>
 <thead class="table-dark">
 	<tr>
@@ -32,7 +33,7 @@ t=c.getStatement();
 	</tr>
 </thead>
 <%
-	ResultSet rs = t.executeQuery("SELECT allocatedStaff, slots FROM categoryline WHERE lineName='SHORT-TERM'");
+	ResultSet rs = st.executeQuery("SELECT allocatedStaff, slots FROM categoryline WHERE lineName='SHORT-TERM'");
 	while (rs.next()){
 
 %>
@@ -48,7 +49,7 @@ t=c.getStatement();
 %>
 
 <%
-	ResultSet rs1 = t.executeQuery("SELECT allocatedStaff, slots FROM categoryline WHERE lineName='MID-TERM'");
+	ResultSet rs1 = st.executeQuery("SELECT allocatedStaff, slots FROM categoryline WHERE lineName='MID-TERM'");
 	while (rs1.next()){
 
 %>
@@ -60,7 +61,7 @@ t=c.getStatement();
 <%} %>
 
 <%
-	ResultSet rs2 = t.executeQuery("SELECT allocatedStaff, slots FROM categoryline WHERE lineName='LONG-TERM'");
+	ResultSet rs2 = st.executeQuery("SELECT allocatedStaff, slots FROM categoryline WHERE lineName='LONG-TERM'");
 	while (rs2.next()){
 
 %>
@@ -88,7 +89,7 @@ t=c.getStatement();
 		</tr>
 		</thead>
 		<%
-		ResultSet res =t.executeQuery("SELECT * FROM staff WHERE productLineID='1' ");
+		ResultSet res =st.executeQuery("SELECT * FROM staff WHERE productLineID='1' ");
 		
 			while (res.next()){
 		%>
@@ -129,7 +130,7 @@ t=c.getStatement();
 		</tr>
 		</thead>
 		<%
-		ResultSet res1 =t.executeQuery("SELECT * FROM staff WHERE productLineID='2' ");
+		ResultSet res1 =st.executeQuery("SELECT * FROM staff WHERE productLineID='2' ");
 		
 			while (res1.next()){
 		%>
@@ -168,7 +169,7 @@ t=c.getStatement();
 		</tr>
 		</thead>
 		<%
-		ResultSet r =t.executeQuery("SELECT * FROM staff WHERE productLineID='3' ");
+		ResultSet r =st.executeQuery("SELECT * FROM staff WHERE productLineID='3' ");
 		
 			while (r.next()){
 		%>
@@ -205,7 +206,7 @@ t=c.getStatement();
 		</tr>
 		</thead>
 		<%
-		ResultSet result =t.executeQuery("SELECT * FROM staff WHERE productLineID='4'");
+		ResultSet result =st.executeQuery("SELECT * FROM staff WHERE productLineID='4'");
 		
 			while (result.next()){
 		%>

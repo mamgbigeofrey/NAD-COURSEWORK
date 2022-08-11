@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 import java.sql.Statement;
+@WebServlet(name = "Recriut", urlPatterns = "/recruit")
 
 public class Recruit extends HttpServlet {
 
@@ -30,7 +31,7 @@ public class Recruit extends HttpServlet {
 				DBConnection conn = new DBConnection();
 				st = conn.getStatement();
 				
-				st.executeUpdate("insert into Staff (firstName, lastName, Age, Gender, address, email) values('"+f+"', '"+l+"', '"+age+"',  '"+g+"', '"+addr+"' '"+email+"' )");
+				st.executeUpdate("insert into staff (firstName, lastName, Age, Gender, address, email) values('"+f+"', '"+l+"', '"+age+"',  '"+g+"', '"+addr+"', '"+email+"' )");
 				response.sendRedirect("staffRecruitment.jsp");
 			} catch (Exception e) {
 				out.println(e.getMessage());

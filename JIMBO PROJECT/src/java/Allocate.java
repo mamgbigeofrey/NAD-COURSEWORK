@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
+@WebServlet(name = "Recriut", urlPatterns = "/allocate")
 public class Allocate extends HttpServlet {
 	
 	@Override
