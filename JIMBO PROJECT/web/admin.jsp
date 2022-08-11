@@ -248,7 +248,7 @@
           <div class="title">Recent Sales</div>
           <div class="sales-details">
               <%
-                    ResultSet rs6=st.executeQuery("select * from orders");
+                    ResultSet rs6=st.executeQuery("select * from orders order by orderDate");
                     rs6.next();
                     %>
         
@@ -279,9 +279,7 @@
 
             
           </div>
-          <div class="button">
-              <a href="#">See All</a>
-          </div>
+       
         </div>
         <div class="top-sales box">
           <div class="title">Top Seling Product</div>
