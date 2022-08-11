@@ -238,7 +238,7 @@
   <servlet-mapping>
     <servlet-name>ButtonReallocate</servlet-name>
     <url-pattern>/ButtonReallocate</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
     <session-config>
         <session-timeout>
             60
