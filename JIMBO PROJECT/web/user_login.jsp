@@ -42,7 +42,7 @@
 
       <div class="redirect_to_sign_up">
         <p>Have no existing account yet? Get the best from Jimbo by signing up</p>
-        <a href="sign-up.jsp"><button>Sign up</button></a>
+        <a href="sign-up.jsp" ><button style="background-color:#5cb874">Sign up</button></a>
       </div>
 
 
