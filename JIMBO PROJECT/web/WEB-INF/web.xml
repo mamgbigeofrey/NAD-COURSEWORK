@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <!--    <servlet>
+<!--        <servlet>
         <servlet-name>AddToCartServlet</servlet-name>
         <servlet-class>com.productServlets.AddToCartServlet</servlet-class>
     </servlet>
@@ -11,8 +11,8 @@
     <servlet-mapping>
         <servlet-name>AddToCartServlet</servlet-name>
         <url-pattern>/AddToCartServlet</url-pattern>
-    </servlet-mapping>-->
-    <!--        <servlet>
+    </servlet-mapping>
+            <servlet>
         <servlet-name>AddToCartServlet</servlet-name>
         <servlet-class>com.productServlets.AddToCartServlet</servlet-class>
     </servlet>
@@ -85,16 +85,16 @@
     <servlet-mapping>
         <servlet-name>RemoveFromCartServlet</servlet-name>
         <url-pattern>//remove-from-cart</url-pattern>
-    </servlet-mapping>-->
-    <!--    <servlet>
+    </servlet-mapping>
+        <servlet>
         <servlet-name>CheckOutServlet</servlet-name>
         <servlet-class>com.productServlets.CheckOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckOutServlet</servlet-name>
         <url-pattern>/cart-check-out</url-pattern>
-    </servlet-mapping>-->
-    <!--    <servlet>
+    </servlet-mapping>
+        <servlet>
         <servlet-name>CancelOrderServlet</servlet-name>
         <servlet-class>com.productServlets.CancelOrderServlet</servlet-class>
     </servlet>
@@ -141,20 +141,20 @@
     <servlet-mapping>
         <servlet-name>RemoveFromCartServlet</servlet-name>
         <url-pattern>/remove-from-cart</url-pattern>
-    </servlet-mapping>-->
-    <!--    <servlet>
+    </servlet-mapping>
+        <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>com.productServlets.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login-user</url-pattern>
-    </servlet-mapping>-->
-<!--    <servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>SIgnUpServlet</servlet-name>
         <servlet-class>SIgnUpServlet</servlet-class>
-    </servlet>-->
-<!--    <servlet-mapping>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/sign-up</url-pattern>
     </servlet-mapping>
@@ -170,75 +170,7 @@
         <servlet-name>Admin_authentication</servlet-name>
         <url-pattern>/Admin_authentication</url-pattern>
     </servlet-mapping>
-       <!--<servlet>-->
-<!--    <description></description>
-    <display-name>Recruit</display-name>
-    <servlet-name>Recruit</servlet-name>
-    <servlet-class>Recruit</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Recruit</servlet-name>
-    <url-pattern>/Recruit</url-pattern>
-  </servlet-mapping>
-  <display-name>PRODUCTMANAGEMENT</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>Reallocate</display-name>
-    <servlet-name>Reallocate</servlet-name>
-    <servlet-class>Reallocate</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Reallocate</servlet-name>
-    <url-pattern>/Reallocate</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Allocate</display-name>
-    <servlet-name>Allocate</servlet-name>
-    <servlet-class>Allocate</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Allocate</servlet-name>
-    <url-pattern>/Allocate</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Allocater</display-name>
-    <servlet-name>Allocater</servlet-name>
-    <servlet-class>Allocater</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Allocater</servlet-name>
-    <url-pattern>/Allocater</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AutoReallocate</display-name>
-    <servlet-name>AutoReallocate</servlet-name>
-    <servlet-class>AutoReallocate</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AutoReallocate</servlet-name>
-    <url-pattern>/AutoReallocate</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ButtonReallocate</display-name>
-    <servlet-name>ButtonReallocate</servlet-name>
-    <servlet-class>ButtonReallocate</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ButtonReallocate</servlet-name>
-    <url-pattern>/ButtonReallocate</url-pattern>
-  </servlet-mapping>
+ 
     <session-config>
         <session-timeout>
             60

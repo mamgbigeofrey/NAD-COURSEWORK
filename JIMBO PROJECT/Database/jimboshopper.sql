@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `username` varchar(30) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 --
 -- Dumping data for table `admin`
@@ -51,7 +51,7 @@ CREATE TABLE `Orders` (
   `productID` int(11) DEFAULT NULL,
   `orderQuantity` int(11) DEFAULT NULL,
   `orderDate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `ProductLine` (
   `productLineID` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `staffAllocated` int(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,7 @@ CREATE TABLE `products` (
   `quantityInStock` int(10) DEFAULT NULL,
   `productLineID` int(10) DEFAULT NULL,
   `Likes` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 --
 -- Dumping data for table `products`
@@ -148,7 +148,7 @@ CREATE TABLE `Staff` (
   `address` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `productLineID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 -- --------------------------------------------------------
 
@@ -166,7 +166,7 @@ CREATE TABLE `users` (
   `timeCreated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `password` varchar(40) NOT NULL,
   `gender` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 -- --------------------------------------------------------
 
