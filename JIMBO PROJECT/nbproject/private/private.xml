@@ -3,26 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/productServlets/LogoutServlet.java</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/sign-up.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/cart.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/user_dashboard.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/includes/navBar.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/user-dashboard.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/Admin_authentication.java</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/js/style.js</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/admin.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/css/style.css</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/admin_login.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/productServlets/CheckOutServlet.java</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/models/Admin.java</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/productServlets/SignUpServlet.java</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/AdminLogout.java</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/index.jsp</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/productServlets/AddToCartServlet.java</file>
-            <file>file:/Users/mwine/Desktop/NAD-COURSEWORK/JIMBO%20PROJECT/web/css/dashboard_style.css</file>
-=======
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/user_login.jsp</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/css/style.css</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/includes/head.jsp</file>
@@ -30,13 +10,14 @@
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/admin.jsp</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/dbConnection/DbCon.java</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/includes/navBar.jsp</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/nbproject/private/private.properties</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/about.jsp</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/index.jsp</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/com/productServlets/SignUpServlet.java</file>
+            <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/sign-up.jsp</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/web/includes/footer.jsp</file>
             <file>file:/C:/Users/Hp/OneDrive/Documents/NAD-COURSEWORK/JIMBO%20PROJECT/src/java/Admin_authentication.java</file>
->>>>>>> a0dcb12cc339b4988ffa8b6f92a124e200506b1c
         </group>
     </open-files>
 </project-private>

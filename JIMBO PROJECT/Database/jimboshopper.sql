@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 09, 2022 at 01:15 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Aug 11, 2022 at 04:17 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,40 +30,72 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `username` varchar(30) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`username`, `password`) VALUES
+('admin', 'admin'),
 ('admin', 'admin');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Orders`
+-- Table structure for table `categoryline`
 --
 
-CREATE TABLE `Orders` (
+CREATE TABLE `categoryline` (
+  `lineID` int(11) NOT NULL,
+  `lineName` varchar(10) NOT NULL,
+  `productLineID` int(3) NOT NULL,
+  `requiredStaff` int(5) NOT NULL,
+  `allocatedStaff` int(5) NOT NULL DEFAULT 0,
+  `slots` int(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `categoryline`
+--
+
+INSERT INTO `categoryline` (`lineID`, `lineName`, `productLineID`, `requiredStaff`, `allocatedStaff`, `slots`) VALUES
+(1, 'SHORT-TERM', 0, 0, 0, NULL),
+(2, 'MID-TERM', 0, 0, 0, NULL),
+(3, 'LONG-TERM', 0, 0, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
   `orderID` int(11) NOT NULL,
   `userID` int(11) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   `orderQuantity` int(11) DEFAULT NULL,
   `orderDate` datetime DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`orderID`, `userID`, `productID`, `orderQuantity`, `orderDate`) VALUES
+(5, 8, 8, 3, '2022-08-11 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ProductLine`
+-- Table structure for table `productline`
 --
 
-CREATE TABLE `ProductLine` (
+CREATE TABLE `productline` (
   `productLineID` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `staffAllocated` int(20) DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -80,7 +112,7 @@ CREATE TABLE `products` (
   `quantityInStock` int(10) DEFAULT NULL,
   `productLineID` int(10) DEFAULT NULL,
   `Likes` int(11) DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
@@ -125,30 +157,90 @@ INSERT INTO `products` (`productID`, `productName`, `category`, `price`, `image`
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `sales`
--- (See below for the actual view)
+-- Table structure for table `sales`
 --
+
 CREATE TABLE `sales` (
-`productName` varchar(100)
-,`orderQuantity` int(11)
-,`Amount` bigint(40)
-);
+  `id` int(11) NOT NULL,
+  `sales` int(3) NOT NULL,
+  `date` date NOT NULL,
+  `productlineID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `sales`, `date`, `productlineID`) VALUES
+(1, 1200, '2022-08-09', 1),
+(2, 2300, '2022-08-10', 1),
+(3, 200, '2022-07-12', 1),
+(4, 2300, '2022-07-12', 1),
+(5, 300, '2022-07-07', 1),
+(6, 2000, '2022-08-09', 2),
+(7, 4000, '2022-08-10', 2),
+(8, 200, '2022-08-11', 2),
+(9, 1500, '2022-07-05', 2),
+(10, 3000, '2022-07-06', 2),
+(11, 300, '2022-08-17', 3),
+(12, 4000, '2022-08-18', 3),
+(13, 400, '2022-07-12', 3),
+(14, 0, '2022-07-19', 3),
+(15, 3000, '2022-08-17', 4),
+(16, 400, '2022-08-23', 4),
+(17, 2900, '2022-07-05', 4),
+(18, 4500, '2022-07-19', 4),
+(19, 4500, '2022-06-14', 1),
+(20, 45000, '2022-06-17', 1),
+(21, 65000, '2022-05-18', 1),
+(22, 50000, '2022-06-18', 2),
+(23, 2000, '2022-06-18', 2),
+(24, 28000, '2022-05-27', 2),
+(25, 45000, '2022-06-22', 3),
+(26, 34000, '2022-06-21', 3),
+(27, 15000, '2022-05-25', 3),
+(28, 43000, '2022-06-14', 4),
+(29, 45000, '2022-06-24', 4),
+(30, 40000, '2022-05-17', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Staff`
+-- Table structure for table `staff`
 --
 
-CREATE TABLE `Staff` (
+CREATE TABLE `staff` (
   `staffID` int(11) NOT NULL,
   `firstName` varchar(30) DEFAULT NULL,
   `lastName` varchar(30) DEFAULT NULL,
   `Age` int(11) DEFAULT NULL,
+  `gender` varchar(10) NOT NULL,
   `address` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'PENDING',
   `productLineID` int(11) DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staffID`, `firstName`, `lastName`, `Age`, `gender`, `address`, `email`, `status`, `productLineID`) VALUES
+(1, 'JENNIFER', 'BUKENYA', 23, 'FEMALE', 'KIIRA', 'namyalojenniferb@gmail.com', 'PENDING', 0),
+(2, 'SSEMYALO', 'JEREMIAH', 45, 'MALE', 'LUBUYA', 'semmajerry1@gmail.com', 'PENDING', 0),
+(3, 'MUZUVA', 'JOSHUA', 56, 'MALE', 'MUYENGA', 'joshuamuzuva@gmail.com', 'PENDING', 0),
+(4, 'BENEDICTFRANCIS', 'BUKENYA', 23, 'MALE', 'KIBAALE', 'bk@gmail.com', 'PENDING', 0),
+(5, 'NAMULINDWA', 'MARY', 54, 'FEMALE', 'NABB', 'maryn@gmail.com', 'PENDING', 0),
+(6, 'SSEBA', 'LUKE', 25, 'MALE', 'KOMIGO', 'lukessebb@gmail.com', 'PENDING', 0),
+(7, 'JOHN', 'LUBWAMA', 43, 'MALE', 'KIKONI', 'johnlubz@gmail.com', 'PENDING', 0),
+(8, 'DANIELLA', 'CADEN', 34, 'FEMALE', 'AFRICA', 'dc@gmail.com', 'PENDING', 0),
+(9, 'LYTON', 'NANTALE', 24, 'FEMALE', 'KASUBI', 'natyly@gmail.com', 'PENDING', 0),
+(10, 'LUKEMAN', 'RIO', 45, 'MALE', 'QATAR', 'lukemanrio@gmail.com', 'PENDING', 0),
+(11, 'ADRIAN', 'ATEENYI', 23, 'FEMALE', 'GGABA', 'ateenyiad@gmail.com', 'PENDING', 0),
+(12, 'LOY', 'SSEBBALE', 34, 'FEMALE', 'WERE', 'loysebb@gmail.com', 'PENDING', 0),
+(13, 'PETERO', 'AKUNI', 34, 'MALE', 'ERR', 'akuniero@gmail.com', 'PENDING', 0),
+(14, 'AUGUST', 'AULI', 23, 'MALE', 'WANDEGEYA', 'augustli@gmail.com', 'PENDING', 0),
+(15, 'JASPER', 'SSENDIKWANAWA', 34, 'MALE', 'JJINJA', 'ssendi@gmail.com', 'PENDING', 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +249,7 @@ CREATE TABLE `Staff` (
 --
 
 CREATE TABLE `users` (
-  `userID` int NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
   `firstName` varchar(40) DEFAULT NULL,
   `lastName` varchar(40) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
@@ -165,34 +257,41 @@ CREATE TABLE `users` (
   `address` varchar(100) DEFAULT NULL,
   `timeCreated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `password` varchar(40) NOT NULL,
-  `gender` varchar(20) DEFAULT NULL, PRIMARY KEY(userID)
-);
-
--- --------------------------------------------------------
+  `gender` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Structure for view `sales`
+-- Dumping data for table `users`
 --
-DROP TABLE IF EXISTS `sales`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `sales`  AS SELECT `products`.`productName` AS `productName`, `orders`.`orderQuantity` AS `orderQuantity`, `orders`.`orderQuantity`* `products`.`price` AS `Amount` FROM (`products` join `orders`) WHERE `orders`.`productID` = `products`.`productID``productID`  ;
+INSERT INTO `users` (`userID`, `firstName`, `lastName`, `email`, `age`, `address`, `timeCreated`, `password`, `gender`) VALUES
+(6, 'Mamgbi', 'Geofrey', 'gmamgbi1999@gmail.com', 34, 'Mulago central', '2022-08-11 14:05:05', 'Ne1234', 'Male'),
+(7, 'Mamgbi', 'Geofrey', 'gmamgbi1999@gmail.com', 34, 'Mulago central', '2022-08-11 14:05:05', 'Ne1234', 'Male'),
+(8, 'User', 'Sensy', 'user@gmail.com', 13, 'Mulago, mawanda road', '2022-08-11 14:06:17', '2222', 'Male'),
+(9, 'User', 'Sensy', 'user@gmail.com', 13, 'Mulago, mawanda road', '2022-08-11 14:06:17', '2222', 'Male');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Orders`
+-- Indexes for table `categoryline`
 --
-ALTER TABLE `Orders`
+ALTER TABLE `categoryline`
+  ADD PRIMARY KEY (`lineID`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`orderID`),
   ADD KEY `userID` (`userID`),
   ADD KEY `productID` (`productID`);
 
 --
--- Indexes for table `ProductLine`
+-- Indexes for table `productline`
 --
-ALTER TABLE `ProductLine`
+ALTER TABLE `productline`
   ADD PRIMARY KEY (`productLineID`);
 
 --
@@ -203,11 +302,16 @@ ALTER TABLE `products`
   ADD KEY `productLineID` (`productLineID`);
 
 --
--- Indexes for table `Staff`
+-- Indexes for table `sales`
 --
-ALTER TABLE `Staff`
-  ADD PRIMARY KEY (`staffID`),
-  ADD KEY `productLineID` (`productLineID`);
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`staffID`);
 
 --
 -- Indexes for table `users`
@@ -220,15 +324,21 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `Orders`
+-- AUTO_INCREMENT for table `categoryline`
 --
-ALTER TABLE `Orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `categoryline`
+  MODIFY `lineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `ProductLine`
+-- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `ProductLine`
+ALTER TABLE `orders`
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `productline`
+--
+ALTER TABLE `productline`
   MODIFY `productLineID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -238,25 +348,31 @@ ALTER TABLE `products`
   MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `Staff`
+-- AUTO_INCREMENT for table `sales`
 --
-ALTER TABLE `Staff`
-  MODIFY `staffID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `sales`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `staffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `Orders`
+-- Constraints for table `orders`
 --
-ALTER TABLE `Orders`
+ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`);
 
@@ -264,13 +380,7 @@ ALTER TABLE `Orders`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`productLineID`) REFERENCES `ProductLine` (`productLineID`);
-
---
--- Constraints for table `Staff`
---
-ALTER TABLE `Staff`
-  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`productLineID`) REFERENCES `ProductLine` (`productLineID`);
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`productLineID`) REFERENCES `productline` (`productLineID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
