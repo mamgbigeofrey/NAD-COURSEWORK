@@ -157,7 +157,7 @@ CREATE TABLE `Staff` (
 --
 
 CREATE TABLE `users` (
-  `userID` int(11) NOT NULL,
+  `userID` int NOT NULL AUTO_INCREMENT,
   `firstName` varchar(40) DEFAULT NULL,
   `lastName` varchar(40) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
@@ -165,7 +165,7 @@ CREATE TABLE `users` (
   `address` varchar(100) DEFAULT NULL,
   `timeCreated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `password` varchar(40) NOT NULL,
-  `gender` varchar(20) DEFAULT NULL
+  `gender` varchar(20) DEFAULT NULL, PRIMARY KEY(userID)
 );
 
 -- --------------------------------------------------------
