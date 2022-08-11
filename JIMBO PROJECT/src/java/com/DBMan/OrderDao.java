@@ -32,7 +32,7 @@ public class OrderDao {
             pst.setInt(2, model.getUid());
             pst.setInt(3, model.getQunatity());
             pst.setString(4, model.getDate());
-            pst.executeUpdate();
+              pst.executeUpdate();
             result = true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
