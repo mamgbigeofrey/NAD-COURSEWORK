@@ -35,6 +35,13 @@
        </style>
     </head>
     <body>
+        <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("auth")==null){
+        response.sendRedirect("admin_login.jsp");
+        }
+    
+    %>
      <div class="header">
           <h1> JIMBO E-COMMERCE SOLUTIONS</h1>
         </div>

@@ -41,6 +41,13 @@
     </head>
     <body>
         <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("auth")==null){
+        response.sendRedirect("admin_login.jsp");
+        }
+    
+    %>
+        <%
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 try {

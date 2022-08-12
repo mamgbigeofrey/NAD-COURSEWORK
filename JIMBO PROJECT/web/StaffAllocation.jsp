@@ -88,6 +88,13 @@
             </head>
 
             <body>
+                <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("auth")==null){
+        response.sendRedirect("admin_login.jsp");
+        }
+    
+    %>
 
                 <form class="form mx-5 my-5" method="post" action="allocate">
                     <h3 class="message">${message}</h3>

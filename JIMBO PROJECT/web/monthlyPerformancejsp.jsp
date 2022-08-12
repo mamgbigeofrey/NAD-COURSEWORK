@@ -9,6 +9,13 @@
 <title>JIMBO | MonthlyPerformance</title>
 </head>
 <body>
+    <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("auth")==null){
+        response.sendRedirect("admin_login.jsp");
+        }
+    
+    %>
 
 <div class="container">
 	<form class="form" method="POST" action="ButtonReallocate">

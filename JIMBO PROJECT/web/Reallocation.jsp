@@ -12,6 +12,13 @@
 <title>JIMBO | ADMIN | ALL STAFF</title>
 </head>
 <body style="margin-top: 20px">
+    <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("auth")==null){
+        response.sendRedirect("admin_login.jsp");
+        }
+    
+    %>
 
 <%
       Class.forName("com.mysql.jdbc.Driver");

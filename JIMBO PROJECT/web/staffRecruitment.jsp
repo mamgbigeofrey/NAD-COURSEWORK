@@ -42,6 +42,13 @@
 <title>STAFF RECRUITMENT</title>
 </head>
 <body>
+    <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("auth")==null){
+        response.sendRedirect("admin_login.jsp");
+        }
+    
+    %>
 
 <div class="container">
 
