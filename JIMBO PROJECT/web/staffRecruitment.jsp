@@ -46,6 +46,7 @@
 <div class="container">
 
     <h2 style="width:100%; margin-top: 20px; text-align: center">STAFF RECRUITMENT FORM</h2>
+    <h3 style="width:100%; margin-top: 20px; text-align: center">${message}</h3>
 
 <form class="form m-10" method ="post" action="recruit" style="width:400px">
     
