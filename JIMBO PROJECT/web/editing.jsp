@@ -1,18 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="com.dbConnection.*"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="com.products.dbConnection"%>
 <%
-    //Getting all inputs from the admin
+
+  try{
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jimboshopper", "root", "");
+    Statement stmt = con.createStatement(); 
+
     int id = Integer.parseInt(request.getParameter("productId"));
     String pname = request.getParameter("productName");
-    String quan = request.getParameter("quantity");
+    String categoryName = request.getParameter("cc");
+    String quantity1 = request.getParameter("quantity");
     String price = request.getParameter("price");
    
     //Querying to the database
-    int updateProduct = dbConnection.insertUpdateFromSqlQuery("update products set productName='" + pname + "', quantityInStock='" + quan + "', price='" + price + "' where productID='" + id + "'");
+    int updateProduct = stmt.executeUpdate("update products set productName='" + pname + "', category='" + categoryName + "',  quantityInStock='" + quantity1 + "', price='" + price + "' where productID='" + id + "'");
     if (updateProduct > 0) {
         response.sendRedirect("viewProducts.jsp");
     } else {
         response.sendRedirect("viewProducts.jsp");
     }
+  
+  }catch(Exception e){
+	  e.printStackTrace();
+  }
 %>

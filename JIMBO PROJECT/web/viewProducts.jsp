@@ -1,41 +1,85 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
-<%@ page import="com.dbConnection.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>JIMBO E-Commerce Solutions</title>
+        <link rel="stylesheet" href="bootstrap.css">
+        
+        <style>
+           .container{
+             width:70%;
+             margin:auto auto;
+             margin-top: 100px;
+           }
+           img {
+             
+             border-radius: 4px;
+             padding: 5px;
+             width: 150px;
+           }
+           th, td {
+             padding: 15px;
+             text-align: left;
+           }
+           .header {
+              padding: 10px;
+              text-align: left;
+              background: orange;
+              color: white;
+              font-size: 10px;
+             }
+           
+       </style>
     </head>
     <body>
-      <table>
-        <thead>
+     <div class="header">
+          <h1> JIMBO E-COMMERCE SOLUTIONS</h1>
+        </div>
+    <h2 style="text-align: center;">ALL PRODUCTS</h2>
+    
+    <div class="container">
+      <table class="table table-bordered border-dark" class="w-75 p-3 " >
+        <thead class="thead-dark">
         <tr>
-            <th>ProductId</th>
-            <th>ProductName</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Image</th>
-            <th>QuantityInStock</th>
-            <th>Likes</th>
+            <th scope="col">ProductId</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+            <th scope="col">QuantityInStock</th>
+            <th scope="col">Likes</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
         <%
-	    ResultSet rs = dbConnection.getResultFromSqlQuery("select productID, productName, category, price,image, quantityInStock, likes from products");
-            while(rs.next()){
+            Class.forName("com.mysql.jdbc.Driver");
+	        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jimboshopper", "root", "");
+            Statement stmt = con.createStatement(); 
+            String sql = ("select * from products");
+            
+	        ResultSet rs = stmt.executeQuery(sql);
+              while(rs.next()){
         %>
     <tbody>
         <tr>
-            <td><%=rs.getInt("productId")%></td>
-            <td><%=rs.getString("product")%></td>
-            <td><%=rs.getString("cc")%></td>
+            <td><%=rs.getInt("productID")%></td>
+            <td><%=rs.getString("productName")%></td>
+            <td><%=rs.getString("category")%></td>
             <td><%=rs.getInt("price")%></td>
-           //for the image <td><%=rs.getInt("id")%></td>
-            <td><%=rs.getInt("quantity")%></td>
-            <td><%=rs.getInt("likes")%></td>
-           
+            <td><img src="images/<%=rs.getString("image")%>" class="rounded"></td>
+            <td><%=rs.getInt("quantityInStock")%></td>
+            <td><%=rs.getInt("Likes")%></td>
+            <td><a class="link-primary" href="editProduct.jsp?id=<%=rs.getInt("productID")%>">Edit</a> | <a class="link-danger" href="deleteProduct.jsp?id=<%=rs.getInt("productID")%>" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
+            </td>
         </tr>
     </tbody>
- </table>      
+    <%
+      }
+    %>
+ </table> 
+ </div>  
 </body>
 </html>

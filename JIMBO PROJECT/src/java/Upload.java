@@ -17,18 +17,11 @@ import jakarta.servlet.annotation.MultipartConfig;
 /**
 * Servlet implementation class Upload
 */
-
+ 
 @MultipartConfig
 public class Upload extends HttpServlet {
 private static final long serialVersionUID = 1L;
-
-/**
-   * @param request
-   * @param response
-   * @throws jakarta.servlet.ServletException
-   * @throws java.io.IOException
-* @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-*/
+ 
 @Override
 public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -41,7 +34,7 @@ try ( PrintWriter out = response.getWriter()) {
       Part part = request.getPart("productImage");
        
         String fileName=part.getSubmittedFileName();
-        String path = "C:/Bukko/FinalProducts/src/main/webapp/images/"+fileName;
+        String path = "./product-image/"+fileName;
         InputStream is = part.getInputStream();
         out.println(fileName);
         boolean success = uploadFile(is,path);
@@ -87,3 +80,19 @@ public boolean uploadFile(InputStream is,String path)throws ServletException, IO
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
-<%@page import="com.dbConnection.*"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,38 +11,91 @@
         
         <style>
              .container{
-              width:50%;
+              width:60%;
               margin:auto auto;
             }
-    </style>
+            .header {
+              padding: 10px;
+              text-align: left;
+              background: orange;
+              color: white;
+              font-size: 10px;
+             }
+       </style>
     </head>
     <body>
-        <h4>Edit Product</h4>
+        
+        <div class="header">
+          <h1> JIMBO E-COMMERCE SOLUTIONS</h1>
+        </div>
+        <h2 style="text-align: center;">Edit Product</h2>
         <%
-            //Getting input from the admin
-            int id = Integer.parseInt(request.getParameter("productId"));
-            //Querying to the database
-            ResultSet update = dbConnection.getResultFromSqlQuery("select * from products where productID ='" + id + "' ");
-            while (update.next()) {
+           try{
+           int id = Integer.parseInt(request.getParameter("id"));
+        
+           Class.forName("com.mysql.jdbc.Driver");
+           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jimboshopper", "root", "");
+           Statement stmt = con.createStatement(); 
+           String sql = ("select productID, productName, category, price, quantityInStock from products where productID = '" + id + "' ");
+        
+           ResultSet updateProduct = stmt.executeQuery(sql);
+           while(updateProduct.next()){
+    
         %>
         <div class="container">
-            <form role="form" action="editing.jsp" method="post">
- 
-                <div class="form-floating mb-3">
-                    <label>Product Name</label> <input class="form-control" type="text" name="productName" value="<%=update.getString("productName")%>" />
+            <form  role="form" action="editing.jsp" method="post">
+                <div class="form-group">
+                    <label>Product Id</label> 
+                    <input class="form-control " type="text" name="productId" value="<%=updateProduct.getInt("productID")%>" readonly />
                 </div>
-                <div class="form-floating mb-3">
-                    <label>Price</label> <input class="form-control" type="text" name="price" value="<%=update.getString("price")%>" />
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input class="form-control " type="text" name="productName" value="<%=updateProduct.getString("productName")%>" />
                 </div>
-                <div class="form-floating mb-3">
-                     <label>Quantity In Stock</label> <input class="form-control" type="text" name="quantity" value="<%=update.getString("quantity")%>" />
+                <div class="form-group">
+                <!-- <select class="form-control form-control-lg" name ="cc" id="<%=updateProduct.getString("category")%>">
+                    <option value="">Shoes</option>
+                    <option value="">Shirts</option>
+                    <option value="">Jackets</option>
+                    <option value="">Jewelry</option> 
+                </select> -->
+                    <label>Category:</label>
+                    <!--<input class="form-control form-control-lg" type="text" name="cc" value="<%=updateProduct.getString("category")%>" />   -->
+                   
+                    <div class="form-check">
+                    <input type="radio" id="shoes" name="cc" value="<%=updateProduct.getString("category")%>"/>
+                    <label for="shoes">Shoes</label>
+   
+                    <input type="radio" id="shirts" name="cc"value="<%=updateProduct.getString("category")%>"/>
+                    <label for="shoes">Shirts</label>
+   
+                    <input type="radio" id="jackets" name="cc" value="<%=updateProduct.getString("category")%>"/>
+                    <label for="shoes">Jackets</label>
+  
+                    <input type="radio" id="jewelry" name="cc" value="<%=updateProduct.getString("category")%>"/>
+                    <label for="shoes">Jewelry</label>
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input class="form-control" type="text" name="price" value="<%=updateProduct.getInt("price")%>" />
+                </div>
+                <div class="form-group">
+                     <label>Quantity In Stock</label> 
+                     <input class="form-control" type="text" name="quantity" value="<%=updateProduct.getInt("quantityInStock")%>" />
                 </div>  
+                <br><br>
                 
-                <button type="submit">Update Product</button>
+                <button class="btn btn-primary" type="submit">Update Product</button>
             </form>
         </div>
-                <%
-                    }%>
+        <%
+           }
+          
+           }catch(Exception e){
+        	   e.printStackTrace();
+           }
+        %>
         
     </body>
 </html>
