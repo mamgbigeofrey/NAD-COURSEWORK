@@ -1,89 +1,100 @@
-package com.products;
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Adding Products</title>
+<link rel="stylesheet" href="./css/bootstrap.css">
 
-import jakarta.servlet.ServletException;
-//import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
+<style>
+    .container{
+        width:40%;
+        margin:auto auto;
+    }
+    .header {
+         padding: 10px;
+         text-align: left;
+         background: orange;
+         color: white;
+         font-size: 10px;
+             }
+    
+</style>
 
-import java.io.IOException;
-import java.io.*;
-import java.sql.*;
+</head>
+<body>
+  <div class="header">
+          <h1> JIMBO E-COMMERCE SOLUTIONS</h1>
+        </div>
+ <h2 style="text-align: center;">Add New Product</h2>
+<div class="container">
+    <form class="form m-10" action="Upload" method="post" enctype="multipart/form-data">
 
-import jakarta.servlet.annotation.MultipartConfig;
-
-
-/**
-* Servlet implementation class Upload
-*/
-
-@MultipartConfig
-public class Upload extends HttpServlet {
-private static final long serialVersionUID = 1L;
-
-/**
-   * @param request
-   * @param response
-   * @throws jakarta.servlet.ServletException
-   * @throws java.io.IOException
-* @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-*/
-@Override
-public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-try ( PrintWriter out = response.getWriter()) {
-
-      String name = request.getParameter("productName");
-      String cat1 = request.getParameter("cc");
-      String price1 = request.getParameter("price");
-      String quantity1 = request.getParameter("quantity");
-      Part part = request.getPart("productImage");
-       
-        String fileName=part.getSubmittedFileName();
-        String path = "C:/Bukko/FinalProducts/src/main/webapp/images/"+fileName;
-        InputStream is = part.getInputStream();
-        out.println(fileName);
-        boolean success = uploadFile(is,path);
-        if(success){
-           try {
-              Class.forName("com.mysql.jdbc.Driver");
-         
-            try{
-      Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jimboshopper","root","");
-      Statement st1=conn.createStatement();
- 
-      String InsertStatement = "insert into products (productName,category, price,image, quantityInStock, Likes) values('"+name+"','"+cat1+"','"+price1+"','"+fileName+"','"+quantity1+"','0')";
+    <!-- comment <div class="form-floating mb-3">
+<input class="form-control" type="text" name="productId" required>
+<label>Product ID:</label>
+</div>
+  form-select form
+ -->
    
-      st1.executeUpdate(InsertStatement);
- 
-            }catch(SQLException e) {
-                out.println(e);
-            }
-        } catch (ClassNotFoundException e) {
-         out.println(e);
-         
-     }
-           response.sendRedirect("viewProducts.jsp");
-            }
-        else{
-            out.println("error");
-        }
-     }
- }
-public boolean uploadFile(InputStream is,String path)throws ServletException, IOException{
- boolean test=false;
- 
-     byte[] byt=new byte[is.available()];
-     is.read(byt);
-     FileOutputStream output=new FileOutputStream(path);
-     output.write(byt);
-     output.flush();
-     output.close();
-     
-     test = true;
-     return test;
- 
-}
+<div class="form-floating mb-3">
+<input class="form-control" type="text" name="productName" required>
+<label>Product Name:</label>
+</div>
+       
+<!--  <div class="form-check">
+<select class="form-control form-control-lg" name ="cc" id="cc">
+    <option value="">Shoes</option>
+    <option value="">Shirts</option>
+    <option value="">Jackets</option>
+    <option value="">Jewelry</option> 
+</select>
+       <label>Category:</label>
+   </div> 
+   -->
+   <label>Category: </label>
+   <div class="form-check">
+   <input type="radio" id="shoes" name="cc" value="Shoes"/>
+   <label for="shoes">Shoes</label>
+   
+   <input type="radio" id="shirts" name="cc"value="Shirts"/>
+   <label for="shoes">Shirts</label>
+   
+   <input type="radio" id="jackets" name="cc" value="Jackets"/>
+   <label for="shoes">Jackets</label>
+  
+   <input type="radio" id="jewelry" name="cc" value="Jewelry"/>
+   <label for="shoes">Jewelry</label>
+   </div>
+      
+<div class="form-floating mb-3">
+    <input class="form-control" type="file" name="productImage" >
+    <label>Image:</label>
+</div>
 
-}
+<div class="form-floating mb-3">
+<input class="form-control" type="text" name="price" required>
+<label>Price: </label>
+</div>
+
+<!--  
+<div class="form-floating mb-3">
+<input class="form-control" type="text" name="longTerm" required>
+<label>Long Term Quantity</label>
+</div> -->
+
+<div class="form-floating mb-3">
+<input class="form-control" type="text" name="quantity" required>
+<label>Quantity In Stock: </label>
+</div>
+
+ <button class="btn-btn primary" type="submit">Add Product</button>
+</form>
+</div>
+
+
+
+
+</body>
+</html>

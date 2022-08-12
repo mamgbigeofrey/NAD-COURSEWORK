@@ -27,8 +27,8 @@
            .header {
               padding: 10px;
               text-align: left;
-              background: orange;
-              color: white;
+	background-color:rgb(0, 64, 128);
+        color: white;
               font-size: 10px;
              }
            
@@ -69,7 +69,7 @@
             <td><%=rs.getString("productName")%></td>
             <td><%=rs.getString("category")%></td>
             <td><%=rs.getInt("price")%></td>
-            <td><img src="images/<%=rs.getString("image")%>" class="rounded"></td>
+            <td><img src="./product-image/<%=rs.getString("image")%>" class="rounded"></td>
             <td><%=rs.getInt("quantityInStock")%></td>
             <td><%=rs.getInt("Likes")%></td>
             <td><a class="link-primary" href="editProduct.jsp?id=<%=rs.getInt("productID")%>">Edit</a> | <a class="link-danger" href="deleteProduct.jsp?id=<%=rs.getInt("productID")%>" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
