@@ -61,7 +61,7 @@
           </a>
         </li>
         
-        <h4>Product Management</h4>
+        <h4 style="color:white; text-transform: uppercase; margin-top: 10px; margin-left: 5px;" >Product Management</h4>
         
         <li>
           <a href="addProducts.jsp">
@@ -75,13 +75,7 @@
             <span class="links_name">View Product</span>
           </a>
         </li>
-        <li>
-          <a href="editProduct.jsp">
-            <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Update Product</span>
-          </a>
-        </li>
-         <h4>Staff Management</h4>
+        <h4 style="color:white; text-transform: uppercase; margin-left: 5px;">Staff Management</h4>
         <li>
           <a href="staffRecruitment.jsp">
             <i class='bx bx-coin-stack' ></i>
@@ -108,7 +102,7 @@
         </li>
         
         
-        <h4>System Reports</h4>
+        <h4 style="color:white; text-transform: uppercase; margin-left: 5px;">System Reports</h4>
         <li>
           <a href="reports.jsp">
             <i class='bx bx-coin-stack' ></i>
@@ -308,66 +302,7 @@
           </div>
        
         </div>
-        <div class="top-sales box">
-          <div class="title">Top Seling Product</div>
-          <ul class="top-sales-details">
-            <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/sunglasses.jpg" alt="">
-              <span class="product">Vuitton Sunglasses</span>
-            </a>
-            <span class="price">$1107</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/jeans.jpg" alt="">
-              <span class="product">Hourglass Jeans </span>
-            </a>
-            <span class="price">$1567</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/nike.jpg" alt="">
-              <span class="product">Nike Sport Shoe</span>
-            </a>
-            <span class="price">$1234</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/scarves.jpg" alt="">
-              <span class="product">Hermes Silk Scarves.</span>
-            </a>
-            <span class="price">$2312</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/blueBag.jpg" alt="">
-              <span class="product">Succi Ladies Bag</span>
-            </a>
-            <span class="price">$1456</span>
-          </li>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/bag.jpg" alt="">
-              <span class="product">Gucci Womens's Bags</span>
-            </a>
-            <span class="price">$2345</span>
-          <li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/addidas.jpg" alt="">
-              <span class="product">Addidas Running Shoe</span>
-            </a>
-            <span class="price">$2345</span>
-          </li>
-<li>
-            <a href="#">
-              <img src="pages/admin-dashboard/images/shirt.jpg" alt="">
-              <span class="product">Bilack Wear's Shirt</span>
-            </a>
-            <span class="price">$1245</span>
-          </li>
-          </ul>
-        </div>
+      
       </div>
     </div>
   </section>
